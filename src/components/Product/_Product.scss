@@ -1,0 +1,17 @@
+.card {
+  a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      .btn {
+        align-self: center;
+        text-transform: lowercase;
+      }
+    }
+  }
+}
