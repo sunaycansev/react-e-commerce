@@ -27,11 +27,11 @@ function App() {
         <div className="App">
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/product/:productId" component={ProductDetail} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/signin" component={Signin} />
             <Route path="/cart" component={Cart} />
+            <Route path="/product/:productId" component={ProductDetail} />
             <Route component={NotFound} />
           </Switch>
         </div>
