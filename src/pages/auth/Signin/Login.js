@@ -1,20 +1,20 @@
 import React from "react";
-import "./_Signin.scss";
+import "./_Login.scss";
 import Header from "../../../components/Header/Header";
 import { Col, Container, Row } from "react-bootstrap";
 
-const Signin = () => {
+const Login = () => {
   return (
     <React.Fragment>
       <Header />
       <Container>
         <Row>
           <Col>
-            <h1>Register</h1>
+            <h1>Login page</h1>
           </Col>
         </Row>
       </Container>
     </React.Fragment>
   );
 };
-export default Signin;
+export default Login;

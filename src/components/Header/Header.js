@@ -24,8 +24,8 @@ const Header = () => {
             <Nav.Link className="nav-link" href="/about">
               About
             </Nav.Link>
-            <Nav.Link className="nav-link" href="/signin">
-              Sign in
+            <Nav.Link className="nav-link" href="/signup">
+              Sign up
             </Nav.Link>
             <Nav.Link className="nav-link-cart position-relative" href="/cart">
               <FiShoppingCart />
