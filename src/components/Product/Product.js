@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./_Product.scss";
 
 const Product = ({ product }) => {
@@ -20,16 +20,18 @@ const Product = ({ product }) => {
           }}
           className="mx-auto py-2"
         />
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text className="text-muted">
-            ${price} id:{id}
-          </Card.Text>
-          <Button variant="primary" onClick={() => alert(id)}>
-            Add to Cart
-          </Button>
-        </Card.Body>
       </Link>
+      <Card.Body>
+        <Link to={`/product/${product.id}`}>
+          <Card.Title>{title}</Card.Title>
+        </Link>
+        <Card.Text className="text-muted">
+          ${price} id:{id}
+        </Card.Text>
+        <Button variant="primary" onClick={() => alert(id)}>
+          Add to Cart
+        </Button>
+      </Card.Body>
     </Card>
   );
 };

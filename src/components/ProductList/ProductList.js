@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import Product from "../Product/Product";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { useProductsContext } from "../../contexts/ProductsContext";
 
 const ProductList = () => {
-  const products = useContext(ProductsContext);
+  const { products } = useProductsContext();
+
   return (
     <Container>
       <Row>

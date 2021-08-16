@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { Badge, Container, Nav, Navbar } from "react-bootstrap";
 import { ReactComponent as Logo } from "../../assets/monday-icon.svg";
 import { FiShoppingCart } from "react-icons/fi";
 import "./_Header.scss";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { useProductsContext } from "../../contexts/ProductsContext";
 
 const Header = () => {
-  const { items } = useContext(ProductsContext);
+  const { products } = useProductsContext();
+
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
       <Container>
