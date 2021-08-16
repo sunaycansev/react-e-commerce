@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
-
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./pages/Homepage/HomePage";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-import Signin from "./pages/Signin/Signin";
+import Signin from "./pages/auth/Signin/Signin";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/404/NotFound";
-import {
-  ProductsContext,
-  useProductsContext,
-} from "./contexts/ProductsContext";
 
-import { CartContext, useStateValue } from "./contexts/CartContext";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function App() {

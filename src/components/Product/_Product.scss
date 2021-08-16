@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    img {
+      margin: 0 auto;
+      height: 13rem;
+
+      object-fit: contain;
+    }
     .card-body {
       display: flex;
       flex-direction: column;

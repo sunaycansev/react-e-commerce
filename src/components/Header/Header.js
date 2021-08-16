@@ -4,11 +4,8 @@ import { Badge, Container, Nav, Navbar } from "react-bootstrap";
 import { ReactComponent as Logo } from "../../assets/monday-icon.svg";
 import { FiShoppingCart } from "react-icons/fi";
 import "./_Header.scss";
-import { useProductsContext } from "../../contexts/ProductsContext";
 
 const Header = () => {
-  const { products } = useProductsContext();
-
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
       <Container>
