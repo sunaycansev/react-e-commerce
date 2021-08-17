@@ -4,6 +4,8 @@ import "./_Signup.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
+import { GrMail } from "react-icons/gr";
+import { BsLockFill, BsLock } from "react-icons/bs";
 
 const Signup = () => {
   const {
@@ -30,90 +32,138 @@ const Signup = () => {
   return (
     <React.Fragment>
       <Header />
-      <Container>
-        <Row className="mt-5">
-          <Col className="justify-content-center align-items-center d-flex">
-            <h1>Sign Up</h1>
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row className="mt-5">
-          <Col className="d-flex justify-content-center align-items-center ">
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="email" className="my-2">
-                E-mail
-              </label>
-              <input
-                type="email"
-                placeholder="e mail gir"
-                name="email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="p-1"
-                value={values.email}
-              />
-              {errors.email && touched.email && (
-                <div className="error-text">{errors.email}</div>
-              )}
-              <label htmlFor="password" className="my-2">
-                password
-              </label>
-              <input
-                type="password"
-                placeholder="password gir"
-                name="password"
-                className="p-1"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.password && touched.password && (
-                <div className="error-text">{errors.password}</div>
-              )}
-              <label htmlFor="passwordConfirm" className="my-2">
-                passwordConfirm
-              </label>
-              <input
-                type="password"
-                placeholder="password doğrula"
-                name="passwordConfirm"
-                className="p-1"
-                value={values.passwordConfirm}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.passwordConfirm && touched.passwordConfirm && (
-                <div className="error-text">{errors.passwordConfirm}</div>
-              )}
-              <br />
+      {/*<Container className="heading-container">*/}
+      {/*  <Row className="mt-5">*/}
+      {/*    <Col className="justify-content-center align-items-center d-flex">*/}
+      {/*      */}
+      {/*    </Col>*/}
+      {/*  </Row>*/}
+      {/*</Container>*/}
+      <Container className="position-absolute top-50 start-50 translate-middle p-5 signup-container">
+        <Row className="signup-content ">
+          <Col className="d-flex justify-content-center align-items-center signup-form flex-column ">
+            <h2 className="heading mx-auto text-center fw-bold fs-1">
+              Sign Up
+            </h2>
+            <form className="w-100" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label
+                  id="email-label"
+                  htmlFor="email"
+                  className="align-self-center"
+                >
+                  <GrMail className="mail-icon icon-size" />
+                </label>
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  name="email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="w-100 d-block"
+                  id="email"
+                  value={values.email}
+                />
+                {errors.email && touched.email && (
+                  <p className="error-text mt-2">{errors.email}</p>
+                )}
+              </div>
+              <div className="form-group">
+                <label
+                  htmlFor="password"
+                  className=" align-self-center"
+                  id="password-label"
+                >
+                  <BsLockFill className="password-icon icon-size" />
+                </label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  className="w-100"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.password && touched.password && (
+                  <p className="error-text mt-2">{errors.password}</p>
+                )}
+              </div>
+              <div className="form-group">
+                <label
+                  htmlFor="passwordConfirm"
+                  className=" align-self-center"
+                  id="passwordConfirm-label"
+                >
+                  <BsLock className="password-icon icon-size" />
+                </label>
+                <input
+                  type="password"
+                  placeholder="Repeat your password"
+                  name="passwordConfirm"
+                  id="passwordConfirm"
+                  className="w-100"
+                  value={values.passwordConfirm}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.passwordConfirm && touched.passwordConfirm && (
+                  <p className="error-text mt-2">{errors.passwordConfirm}</p>
+                )}
+              </div>
 
-              <input
-                type="checkbox"
-                name="agree"
-                id="agree"
-                value={values.agree}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
+              <div className="form-group">
+                <input
+                  type="checkbox"
+                  name="agree"
+                  id="agree"
+                  value={values.agree}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="agree-term d-inline-block my-2 "
+                />
 
-              <label htmlFor="agree" className="d-inline ms-2">
-                I agree <span>Term</span>,<span>Privacy Policy</span> and{" "}
-                <span>Fees</span>
-              </label>
-              <br />
-              {errors.agree && touched.agree && (
-                <div className="error-text">{errors.agree}</div>
-              )}
-              <br />
-              <button
-                type="submit"
-                disabled={!dirty || isSubmitting}
-                className="my-2 p-1 w-100"
-              >
-                Sign Up
-              </button>
+                <label
+                  htmlFor="agree"
+                  className="label-agree-term float-end align-self-center mt-3"
+                >
+                  I agree all statements in{" "}
+                  <a
+                    href="#"
+                    className="term-service text-decoration-underline text-dark"
+                  >
+                    Terms of service
+                  </a>
+                </label>
+                <br />
+                {errors.agree && touched.agree && (
+                  <p className="error-text mt-2 ">{errors.agree}</p>
+                )}
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="submit"
+                  disabled={!dirty || isSubmitting}
+                  className="d-inline-block"
+                  id="submit-btn"
+                  value="Register"
+                />
+              </div>
             </form>
+          </Col>
+          <Col className="signup-image d-flex justify-content-center align-items-center flex-column">
+            <figure className="mb-2 text-center">
+              <img
+                src="https://picsum.photos/294/314"
+                alt="signup-img"
+                className="w-100"
+              />
+            </figure>
+            <a href="#" className="text-dark d-block text-center">
+              I am already member
+            </a>
           </Col>
         </Row>
       </Container>
