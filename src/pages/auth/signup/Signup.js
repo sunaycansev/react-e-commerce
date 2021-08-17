@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import validationSchema from "./validations";
 import { GrMail } from "react-icons/gr";
 import { BsLockFill, BsLock } from "react-icons/bs";
+import png from "../../../assets/signup-image.jpg";
 
 const Signup = () => {
   const {
@@ -39,7 +40,8 @@ const Signup = () => {
       {/*    </Col>*/}
       {/*  </Row>*/}
       {/*</Container>*/}
-      <Container className="position-absolute top-50 start-50 translate-middle p-5 signup-container">
+
+      <Container className=" p-5 signup-container my-5">
         <Row className="signup-content ">
           <Col className="d-flex justify-content-center align-items-center signup-form flex-column ">
             <h2 className="heading mx-auto text-center fw-bold fs-1">
@@ -64,10 +66,10 @@ const Signup = () => {
                   id="email"
                   value={values.email}
                 />
-                {errors.email && touched.email && (
-                  <p className="error-text mt-2">{errors.email}</p>
-                )}
               </div>
+              {errors.email && touched.email && (
+                <p className="error-text">{errors.email}</p>
+              )}
               <div className="form-group">
                 <label
                   htmlFor="password"
@@ -86,10 +88,10 @@ const Signup = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.password && touched.password && (
-                  <p className="error-text mt-2">{errors.password}</p>
-                )}
               </div>
+              {errors.password && touched.password && (
+                <p className="error-text">{errors.password}</p>
+              )}
               <div className="form-group">
                 <label
                   htmlFor="passwordConfirm"
@@ -108,12 +110,12 @@ const Signup = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.passwordConfirm && touched.passwordConfirm && (
-                  <p className="error-text mt-2">{errors.passwordConfirm}</p>
-                )}
               </div>
+              {errors.passwordConfirm && touched.passwordConfirm && (
+                <p className="error-text">{errors.passwordConfirm}</p>
+              )}
 
-              <div className="form-group">
+              <div className="form-group d-flex justify-content-start">
                 <input
                   type="checkbox"
                   name="agree"
@@ -121,7 +123,7 @@ const Signup = () => {
                   value={values.agree}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="agree-term d-inline-block my-2 "
+                  className="agree-term d-inline-block my-2 me-2"
                 />
 
                 <label
@@ -137,29 +139,28 @@ const Signup = () => {
                   </a>
                 </label>
                 <br />
-                {errors.agree && touched.agree && (
-                  <p className="error-text mt-2 ">{errors.agree}</p>
-                )}
               </div>
+              {errors.agree && touched.agree && (
+                <p className="error-text " id="agree-error-msg">
+                  {errors.agree}
+                </p>
+              )}
 
               <div className="form-group">
-                <input
+                <button
                   type="submit"
                   disabled={!dirty || isSubmitting}
                   className="d-inline-block"
                   id="submit-btn"
-                  value="Register"
-                />
+                >
+                  Register
+                </button>
               </div>
             </form>
           </Col>
           <Col className="signup-image d-flex justify-content-center align-items-center flex-column">
             <figure className="mb-2 text-center">
-              <img
-                src="https://picsum.photos/294/314"
-                alt="signup-img"
-                className="w-100"
-              />
+              <img src={png} alt="signup-img" className="" />
             </figure>
             <a href="#" className="text-dark d-block text-center">
               I am already member

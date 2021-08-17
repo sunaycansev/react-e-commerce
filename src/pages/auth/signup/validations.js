@@ -2,14 +2,16 @@ import * as Yup from "yup";
 
 const validations = Yup.object().shape({
   email: Yup.string()
-    .email("Geçerli e mail gir reyiz")
-    .required("zorunlu alan"),
+    .email("Please enter a valid email address.")
+    .required("Please fill out this field as it is required."),
   password: Yup.string()
-    .min(8, "şifre en az 8 karakter")
-    .required("zorunlu alan"),
+    .min(8, "The password must be at least 8 characters long.")
+    .required("Please fill out this field as it is required."),
   passwordConfirm: Yup.string()
-    .oneOf([Yup.ref("password")], "parolalar uyuşmuyor")
-    .required(),
-  agree: Yup.bool().oneOf([true], "koşulları kabul et ").required(),
+    .oneOf([Yup.ref("password")], "Password confirmation must match password.")
+    .required("Please fill out this field as it is required."),
+  agree: Yup.bool()
+    .oneOf([true], "You must accept terms of service")
+    .required("Please fill out this field as it is required."),
 });
 export default validations;
