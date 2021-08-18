@@ -4,8 +4,10 @@ import { Badge, Container, Nav, Navbar } from "react-bootstrap";
 import { ReactComponent as Logo } from "../../assets/monday-icon.svg";
 import { FiShoppingCart } from "react-icons/fi";
 import "./_Header.scss";
-
+import { useAuthContext } from "../../contexts/AuthContext";
 const Header = () => {
+  const { loggedIn } = useAuthContext();
+  console.log(loggedIn);
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
       <Container>

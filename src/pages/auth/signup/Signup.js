@@ -8,10 +8,12 @@ import { GrMail } from "react-icons/gr";
 import { BsLockFill, BsLock } from "react-icons/bs";
 import png from "../../../assets/signup-image.jpg";
 import { useAuthContext } from "../../../contexts/AuthContext";
-import { v4 as uuidv4 } from "uuid";
+
+import axios from "axios";
+import { registerUser } from "../../../api";
 
 const Signup = () => {
-  const { users, setUsers } = useAuthContext();
+  const { users, setUsers, login } = useAuthContext();
   const {
     handleSubmit,
     handleChange,
@@ -30,11 +32,21 @@ const Signup = () => {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      setUsers([...users, { ...values, id: uuidv4() }]);
-      window.localStorage.setItem(
-        "users",
-        JSON.stringify([...users, { ...values, id: uuidv4() }])
-      );
+      try {
+        const registerResponse = await registerUser({
+          email: values.email,
+          password: values.password,
+        });
+        console.log(registerResponse);
+        setUsers([...users, { ...values }]);
+        window.localStorage.setItem(
+          "users",
+          JSON.stringify([...users, { ...values }])
+        );
+        login();
+      } catch (e) {
+        console.log(e);
+      }
     },
   });
   console.log(users);

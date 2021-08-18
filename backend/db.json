@@ -1,9 +1,39 @@
 {
   "users": [
     {
-      "id": 0,
+      "id": 1,
       "email": "test@test.com",
       "password": "180320021996"
+    },
+    {
+      "email": "ferhat_sncn@hotmail.com",
+      "password": "ebeneben",
+      "id": 2
+    },
+    {
+      "email": "ferhat_sncn@hotmail.com",
+      "password": "ebeneben",
+      "id": 3
+    },
+    {
+      "email": "fsunaycansev@gmail.com",
+      "password": "asdfghjk",
+      "id": 4
+    },
+    {
+      "email": "av.ferhatsunaycansev@gmail.com",
+      "password": "ebeneben",
+      "id": 5
+    },
+    {
+      "email": "fsunaycansev@gmail.com",
+      "password": "ebeneben",
+      "id": 6
+    },
+    {
+      "email": "fsunaycansev@gmail.com",
+      "password": "18032002",
+      "id": 7
     }
   ]
 }
