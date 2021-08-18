@@ -10,7 +10,7 @@ const Product = ({ product }) => {
     <Card
       border="dark"
       style={{ width: "15rem" }}
-      className="my-5 mx-2 position-relative bg-secondary"
+      className="my-5 mx-2 position-relative "
     >
       <Link to={`/product/${product.id}`}>
         <Card.Img

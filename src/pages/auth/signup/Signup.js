@@ -7,8 +7,11 @@ import validationSchema from "./validations";
 import { GrMail } from "react-icons/gr";
 import { BsLockFill, BsLock } from "react-icons/bs";
 import png from "../../../assets/signup-image.jpg";
+import { useAuthContext } from "../../../contexts/AuthContext";
+import { v4 as uuidv4 } from "uuid";
 
 const Signup = () => {
+  const { users, setUsers } = useAuthContext();
   const {
     handleSubmit,
     handleChange,
@@ -27,9 +30,14 @@ const Signup = () => {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      setUsers([...users, { ...values, id: uuidv4() }]);
+      window.localStorage.setItem(
+        "users",
+        JSON.stringify([...users, { ...values, id: uuidv4() }])
+      );
     },
   });
+  console.log(users);
   return (
     <React.Fragment>
       <Header />

@@ -27,6 +27,9 @@ const Header = () => {
             <Nav.Link className="nav-link" href="/signup">
               Sign up
             </Nav.Link>
+            <Nav.Link className="nav-link" href="/login">
+              Login
+            </Nav.Link>
             <Nav.Link className="nav-link-cart position-relative" href="/cart">
               <FiShoppingCart />
               <Badge
