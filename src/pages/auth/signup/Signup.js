@@ -43,13 +43,13 @@ const Signup = () => {
           "users",
           JSON.stringify([...users, { ...values }])
         );
-        login();
+        login(registerResponse);
       } catch (e) {
         console.log(e);
       }
     },
   });
-  console.log(users);
+
   return (
     <React.Fragment>
       <Header />

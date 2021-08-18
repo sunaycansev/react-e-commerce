@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const localeUsers = JSON.parse(window.localStorage.getItem("users"));
     setUsers(localeUsers);
-  }, [users.length]);
+  }, [users?.length]);
 
   const value = { users, setUsers, login };
 
