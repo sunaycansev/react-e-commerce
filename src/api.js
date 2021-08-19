@@ -11,3 +11,7 @@ export const getAllUsers = async () => {
   // console.log(me);
   return data;
 };
+
+export const logoutUser = async (input) => {
+  const { data } = await axios.post("http://localhost:8000/users");
+};

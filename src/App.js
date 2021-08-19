@@ -1,5 +1,6 @@
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import HomePage from "./pages/Homepage/HomePage";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
@@ -21,7 +22,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/cart" component={Cart} />
-        <Route path="/profile" component={Profile} />
+        <ProtectedRoute path="/profile" component={Profile} />
         <Route path="/product/:productId" component={ProductDetail} />
         <Route component={NotFound} />
       </Switch>

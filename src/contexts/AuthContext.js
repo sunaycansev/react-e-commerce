@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import { getAllUsers } from "../api";
+import { getAllUsers, logoutUser } from "../api";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 export const AuthContext = createContext();
@@ -49,6 +49,16 @@ const AuthProvider = ({ children }) => {
     setUsers(data);
     localStorage.setItem("logindata", JSON.stringify(data));
   };
+  // logout function
+  const logout = async (callback) => {
+    setLoggedIn(false);
+    setUsers(null);
+    // await logoutUser();
+    //remove localstorage
+    localStorage.removeItem("logindata");
+    // callback for redirecting
+    callback();
+  };
   // get current user
   useEffect(() => {
     (async () => {
@@ -58,11 +68,16 @@ const AuthProvider = ({ children }) => {
         //console.log(logindata);
 
         if (logindata !== null) {
-          const me = allUsers.filter((user) => user.email === logindata.email);
+          const me = allUsers.filter(
+            (user) =>
+              user.email === logindata.email &&
+              user.password === logindata.password
+          );
           setLoggedIn(true);
           setUsers(me);
 
           console.log(me);
+          console.log(loggedIn);
         }
         //console.log(logindata);
 
@@ -76,7 +91,7 @@ const AuthProvider = ({ children }) => {
     })();
   }, []);
 
-  const value = { users, setUsers, login, loggedIn };
+  const value = { users, setUsers, login, loggedIn, logout };
 
   if (loading) {
     return (
