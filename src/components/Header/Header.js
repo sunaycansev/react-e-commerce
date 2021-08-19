@@ -7,7 +7,7 @@ import "./_Header.scss";
 import { useAuthContext } from "../../contexts/AuthContext";
 const Header = () => {
   const { loggedIn } = useAuthContext();
-  console.log(loggedIn);
+
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
       <Container>
@@ -26,12 +26,23 @@ const Header = () => {
             <Nav.Link className="nav-link" href="/about">
               About
             </Nav.Link>
-            <Nav.Link className="nav-link" href="/signup">
-              Sign up
-            </Nav.Link>
-            <Nav.Link className="nav-link" href="/login">
-              Login
-            </Nav.Link>
+            {!loggedIn && (
+              <>
+                <Nav.Link className="nav-link" href="/signup">
+                  Sign up
+                </Nav.Link>
+                <Nav.Link className="nav-link" href="/login">
+                  Login
+                </Nav.Link>
+              </>
+            )}
+            {loggedIn && (
+              <>
+                <Nav.Link className="nav-link" href="/profile">
+                  Profile
+                </Nav.Link>
+              </>
+            )}
             <Nav.Link className="nav-link-cart position-relative" href="/cart">
               <FiShoppingCart />
               <Badge

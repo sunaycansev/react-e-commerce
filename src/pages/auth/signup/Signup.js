@@ -37,13 +37,13 @@ const Signup = () => {
           email: values.email,
           password: values.password,
         });
-        console.log(registerResponse);
-        setUsers([...users, { ...values }]);
-        window.localStorage.setItem(
-          "users",
-          JSON.stringify([...users, { ...values }])
-        );
         login(registerResponse);
+
+        // setUsers([...users, { ...values }]);
+        // window.localStorage.setItem(
+        //   "users",
+        //   JSON.stringify([...users, { ...values }])
+        // );
       } catch (e) {
         console.log(e);
       }

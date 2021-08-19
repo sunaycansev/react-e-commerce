@@ -7,6 +7,7 @@ import Login from "./pages/auth/Signin/Login";
 import Signup from "./pages/auth/signup/Signup";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/404/NotFound";
+import Profile from "./pages/Profile/Profile";
 
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/cart" component={Cart} />
+        <Route path="/profile" component={Profile} />
         <Route path="/product/:productId" component={ProductDetail} />
         <Route component={NotFound} />
       </Switch>
