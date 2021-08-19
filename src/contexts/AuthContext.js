@@ -1,11 +1,13 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import { getCurrentUser } from "../api";
+import { getAllUsers } from "../api";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // get all users from api
   // useEffect(() => {
@@ -51,24 +53,44 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        const allUsers = await getCurrentUser();
+        const allUsers = await getAllUsers();
         const logindata = JSON.parse(localStorage.getItem("logindata"));
+        //console.log(logindata);
+
         if (logindata !== null) {
           const me = allUsers.filter((user) => user.email === logindata.email);
           setLoggedIn(true);
           setUsers(me);
+
           console.log(me);
         }
+        //console.log(logindata);
+
         // const me = users.filter(
         //   (user) => user.email === data.email && user.password === data.password
         // );
       } catch (e) {
         console.log(e);
+        // setLoading(false);
       }
     })();
   }, []);
 
   const value = { users, setUsers, login, loggedIn };
+
+  if (loading) {
+    return (
+      <Container>
+        <Row>
+          <Col>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

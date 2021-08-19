@@ -5,7 +5,7 @@ export const registerUser = async (input) => {
   return data;
 };
 
-export const getCurrentUser = async () => {
+export const getAllUsers = async () => {
   const { data } = await axios.get("http://localhost:8000/users");
   // const me = localStorage.getItem("logindata");
   // console.log(me);

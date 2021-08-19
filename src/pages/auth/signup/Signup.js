@@ -12,7 +12,7 @@ import { useAuthContext } from "../../../contexts/AuthContext";
 import axios from "axios";
 import { registerUser } from "../../../api";
 
-const Signup = () => {
+const Signup = ({ history }) => {
   const { users, setUsers, login } = useAuthContext();
   const {
     handleSubmit,
@@ -33,11 +33,15 @@ const Signup = () => {
     validationSchema,
     onSubmit: async (values, bag) => {
       try {
+        //console.log("signup values", values);
         const registerResponse = await registerUser({
           email: values.email,
           password: values.password,
         });
+        console.log("registerresponse", registerResponse);
         login(registerResponse);
+        history.push("/profile");
+        //console.log("users-state", users);
 
         // setUsers([...users, { ...values }]);
         // window.localStorage.setItem(
@@ -46,6 +50,7 @@ const Signup = () => {
         // );
       } catch (e) {
         console.log(e);
+        bag.setErrors({ general: e.response.data.message });
       }
     },
   });
