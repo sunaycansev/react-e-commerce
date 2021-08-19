@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../../components/Header/Header";
+import Footer from "../../../components/Footer/Footer";
 import "./_Login.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { useFormik } from "formik";
@@ -101,12 +102,13 @@ const Login = () => {
             <figure className="mb-2 text-center">
               <img src={png} alt="signup-img" className="" />
             </figure>
-            <a href="#" className="text-dark d-block text-center">
+            <a href="/signup" className="text-dark d-block text-center">
               Create an account
             </a>
           </Col>
         </Row>
       </Container>
+      <Footer />
     </React.Fragment>
   );
 };

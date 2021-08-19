@@ -5,85 +5,53 @@ import { Container, Row, Col, Spinner } from "react-bootstrap";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // get all users from api
   // useEffect(() => {
-  //   const getUsers = async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:8000/users", {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Accept: "application/json",
-  //         },
-  //       });
-  //       const data = await res.json();
-  //       // const localeUsers = JSON.parse(window.localStorage.getItem("users"));
-  //       //
-  //       // if (!localeUsers) {
-  //       //   setUsers(data);
-  //       //   window.localStorage.setItem("users", JSON.stringify(data));
-  //       // } else {
-  //       //   localeUsers.length > data.length
-  //       //     ? setUsers(localeUsers)
-  //       //     : setUsers(data);
-  //       //   window.localStorage.setItem("users", JSON.stringify(localeUsers));
-  //       // }
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-  //   getUsers();
+  //   const isUser = window.localStorage.getItem("logindata");
+  //   if (isUser) {
+  //     setLoggedIn(true);
+  //   }
   // }, []);
-  // check locale storage and set locale storage and determines users state
-  // useEffect(() => {
-  //   const localeUsers = JSON.parse(window.localStorage.getItem("users"));
-  //   setUsers(localeUsers);
-  // }, [users?.length]);
-
-  //login functiıon
+  //login function
   const login = (data) => {
     setLoggedIn(true);
-    setUsers(data);
+    setUser(data);
     localStorage.setItem("logindata", JSON.stringify(data));
   };
   // logout function
   const logout = async (callback) => {
     setLoggedIn(false);
-    setUsers(null);
-    // await logoutUser();
-    //remove localstorage
+    setUser(null);
     localStorage.removeItem("logindata");
+    await logoutUser();
+    //remove localstorage
     // callback for redirecting
     callback();
   };
-  // get current user
+
+  console.log(loggedIn);
+
   useEffect(() => {
     (async () => {
       try {
         const allUsers = await getAllUsers();
-        const logindata = JSON.parse(localStorage.getItem("logindata"));
+        const loginData = JSON.parse(localStorage.getItem("logindata"));
         //console.log(logindata);
 
-        if (logindata !== null) {
+        if (loginData !== null) {
           const me = allUsers.filter(
             (user) =>
-              user.email === logindata.email &&
-              user.password === logindata.password
+              user.email === loginData.email &&
+              user.password === loginData.password
           );
           setLoggedIn(true);
-          setUsers(me);
-
-          console.log(me);
-          console.log(loggedIn);
+          setUser(me[0]);
+          console.log(me[0]);
         }
         //console.log(logindata);
-
-        // const me = users.filter(
-        //   (user) => user.email === data.email && user.password === data.password
-        // );
       } catch (e) {
         console.log(e);
         // setLoading(false);
@@ -91,7 +59,7 @@ const AuthProvider = ({ children }) => {
     })();
   }, []);
 
-  const value = { users, setUsers, login, loggedIn, logout };
+  // get current user
 
   if (loading) {
     return (
@@ -106,6 +74,7 @@ const AuthProvider = ({ children }) => {
       </Container>
     );
   }
+  const value = { user, setUser, login, loggedIn, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { Button } from "react-bootstrap";
 function Profile({ history }) {
-  const { users: user, logout } = useAuthContext();
+  const { user, logout } = useAuthContext();
   const handleLogout = async () => {
     logout(() => {
       history.push("/");

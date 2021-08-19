@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./_ProductDetail.scss";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import {
   Col,
   Container,
@@ -146,6 +147,7 @@ function ProductDetail() {
           </Row>
         </section>
       </Container>
+      {/*<Footer />*/}
     </React.Fragment>
   );
 }

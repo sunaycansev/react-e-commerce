@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../../components/Header/Header";
+import Footer from "../../../components/Footer/Footer";
 import "./_Signup.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { useFormik } from "formik";
@@ -13,7 +14,7 @@ import axios from "axios";
 import { registerUser } from "../../../api";
 
 const Signup = ({ history }) => {
-  const { users, setUsers, login } = useAuthContext();
+  const { login } = useAuthContext();
   const {
     handleSubmit,
     handleChange,
@@ -38,9 +39,10 @@ const Signup = ({ history }) => {
           email: values.email,
           password: values.password,
         });
-        console.log("registerresponse", registerResponse);
+        // console.log("registerresponse", registerResponse);
         login(registerResponse);
         history.push("/profile");
+
         //console.log("users-state", users);
 
         // setUsers([...users, { ...values }]);
@@ -187,12 +189,13 @@ const Signup = ({ history }) => {
             <figure className="mb-2 text-center">
               <img src={png} alt="signup-img" className="" />
             </figure>
-            <a href="#" className="text-dark d-block text-center">
+            <a href="/login" className="text-dark d-block text-center">
               I am already member
             </a>
           </Col>
         </Row>
       </Container>
+      <Footer />
     </React.Fragment>
   );
 };
