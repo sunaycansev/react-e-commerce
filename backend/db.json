@@ -110,7 +110,8 @@
     {
       "email": "ferhat_sncn@hotmail.com",
       "password": "12345678",
-      "id": 24
+      "id": 24,
+      "cart": []
     },
     {
       "email": "aa@aa.com",
@@ -190,6 +191,23 @@
       "email": "aaa@aa.com",
       "password": "12345678",
       "id": 41
+    },
+    {
+      "email": "1200111621@erciyes.edu.tr",
+      "password": "12345678",
+      "id": 42
+    },
+    {
+      "id": 43
+    },
+    {
+      "id": 44
+    },
+    {
+      "id": 45
+    },
+    {
+      "id": 46
     }
   ]
 }

@@ -6,7 +6,10 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(
+    JSON.parse(localStorage.getItem("logindata")) !== null ? true : false
+  );
   const [loading, setLoading] = useState(false);
 
   const login = (data) => {
