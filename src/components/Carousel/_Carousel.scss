@@ -1,0 +1,13 @@
+.slider {
+  .carousel .carousel-inner .carousel-item {
+    height: 300px;
+
+    img {
+      min-height: 300px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
