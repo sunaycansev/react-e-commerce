@@ -1,6 +1,7 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { getAllUsers, logoutUser } from "../api";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { setLocale } from "yup";
 
 export const AuthContext = createContext();
 
@@ -16,6 +17,16 @@ const AuthProvider = ({ children }) => {
     setLoggedIn(true);
     setUser(data);
     localStorage.setItem("logindata", JSON.stringify(data));
+    //localden cartı get
+    // user bilgisini yay
+    // user içine cartı gönder
+
+    // localestorage userCarts.filter check eger id varsa
+    // o id deki cart bilgisini userdaki cart içine yay
+
+    const localeCart = localStorage.getItem("cart");
+    setUser({ ...data, cart: JSON.parse(localeCart) });
+    console.log(user);
   };
   // logout function
   const logout = async (callback) => {
@@ -23,7 +34,25 @@ const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem("logindata");
     await logoutUser();
+
+    //current user id si al
+    //localestorage(usercarts) a bu id keye ile id bilgisini set et
+    /*
+    const allUsersCarts = [
+      {
+        id:1,
+        cart:cart arrayi
+      },
+      {
+        id:2,
+        cart
+      }
+    ]
+    
+     */
+
     //remove localstorage
+
     // callback for redirecting
     callback();
   };

@@ -10,7 +10,7 @@ function Profile({ history }) {
       history.push("/");
     });
   };
-
+  console.log(user);
   return (
     <React.Fragment>
       <Header />

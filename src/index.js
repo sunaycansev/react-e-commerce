@@ -7,16 +7,14 @@ import CartProvider from "./contexts/CartContext";
 import ProductsProvider from "./contexts/ProductsContext";
 import AuthProvider from "./contexts/AuthContext";
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <AuthProvider>
-        <ProductsProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </ProductsProvider>
-      </AuthProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <AuthProvider>
+      <ProductsProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </ProductsProvider>
+    </AuthProvider>
+  </Router>,
   document.getElementById("root")
 );

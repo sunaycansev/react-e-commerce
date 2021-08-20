@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import "./_Product.scss";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaHeart, FaRandom } from "react-icons/fa";
+import { useCartContext } from "../../contexts/CartContext";
 
 const Product = ({ product }) => {
   const { image, title, price, id } = product;
+  const { addToCart, removeCartItem } = useCartContext();
   return (
     <Card
       // border="dark"
@@ -30,7 +32,11 @@ const Product = ({ product }) => {
         </Link>
       </Card.Body>
       <Card.Text className="text-success fs-5 fw-bold">${price}</Card.Text>
-      <Button className="my-2" variant="dark" onClick={() => alert(id)}>
+      <Button
+        className="my-2"
+        variant="dark"
+        onClick={() => addToCart(product)}
+      >
         <FiShoppingCart className="me-2" /> Add to Cart
       </Button>
     </Card>
