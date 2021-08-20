@@ -18,10 +18,13 @@ const AuthProvider = ({ children }) => {
     setUser(data);
     localStorage.setItem("logindata", JSON.stringify(data));
     //localden cartı get
+
     // user bilgisini yay
+
     // user içine cartı gönder
 
     // localestorage userCarts.filter check eger id varsa
+
     // o id deki cart bilgisini userdaki cart içine yay
 
     const localeCart = localStorage.getItem("cart");

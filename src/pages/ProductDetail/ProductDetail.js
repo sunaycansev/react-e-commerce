@@ -35,7 +35,7 @@ function ProductDetail() {
               md={4}
               className="mb-4 img-container  d-flex justify-content-center align-items-center p-3"
             >
-              <Image className="w-100 shadow-sm" src={details?.image} rounded />
+              <Image className="w-100" src={details?.image} rounded />
             </Col>
             <Col md={8} className=" p-3">
               <h5 className="my-3">{details?.title}</h5>

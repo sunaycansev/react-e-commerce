@@ -1,6 +1,6 @@
 import React from "react";
 import "./_Footer.scss";
-import { Col, Container, Row } from "react-bootstrap";
+
 import { FaInstagram, FaPinterestP } from "react-icons/fa";
 import { FiTwitter, FiFacebook } from "react-icons/fi";
 import { TiSocialLinkedin } from "react-icons/ti";

@@ -9,11 +9,7 @@ const ProductList = () => {
     <Container>
       <Row className="justify-content-center">
         {products.map((product) => (
-          <Product
-            product={product}
-            key={product.id}
-            className="col-md-3 col-sm-6"
-          />
+          <Product product={product} key={product.id} className="" />
         ))}
       </Row>
     </Container>
