@@ -42,14 +42,6 @@ const Signup = ({ history }) => {
         // console.log("registerresponse", registerResponse);
         login(registerResponse);
         history.push("/profile");
-
-        //console.log("users-state", users);
-
-        // setUsers([...users, { ...values }]);
-        // window.localStorage.setItem(
-        //   "users",
-        //   JSON.stringify([...users, { ...values }])
-        // );
       } catch (e) {
         console.log(e);
         bag.setErrors({ general: e.response.data.message });

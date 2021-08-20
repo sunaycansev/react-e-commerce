@@ -2,16 +2,17 @@ import React from "react";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import "./_Login.scss";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Alert } from "react-bootstrap";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
 import { GrMail } from "react-icons/gr";
 import { BsLockFill } from "react-icons/bs";
 import png from "../../../assets/signin-image.jpg";
 import { useAuthContext } from "../../../contexts/AuthContext";
+import { loginUser } from "../../../api";
 
-const Login = () => {
-  const { users, setUsers } = useAuthContext();
+const Login = ({ history }) => {
+  const { login } = useAuthContext();
   const {
     handleSubmit,
     handleChange,
@@ -28,7 +29,22 @@ const Login = () => {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      try {
+        const loginResponse = await loginUser({
+          email: values.email,
+          password: values.password,
+        });
+        console.log("loginresponse", loginResponse);
+        if (!loginResponse) {
+          // burada alert gösterilecek
+          history.push("/login");
+        } else {
+          login(loginResponse[0]);
+          history.push("/profile");
+        }
+      } catch (e) {
+        console.log("logintrycatch", e);
+      }
     },
   });
 

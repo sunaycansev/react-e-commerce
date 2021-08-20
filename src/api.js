@@ -22,6 +22,18 @@ export const registerUser = async (input) => {
   return data;
 };
 
+export const loginUser = async (input) => {
+  const { data } = await axios.get("http://localhost:8000/users");
+  console.log(data);
+  let isUser = data.filter(
+    (user) => user.email === input.email && user.password === input.password
+  );
+  if (isUser.length !== 1) {
+    isUser = false;
+  }
+  return isUser;
+};
+
 export const getAllUsers = async () => {
   const { data } = await axios.get("http://localhost:8000/users");
   // const me = localStorage.getItem("logindata");

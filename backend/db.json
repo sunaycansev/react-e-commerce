@@ -146,6 +146,14 @@
       "email": "ferhat_sncn@hotmail.com",
       "password": "asdfghjk",
       "id": 31
+    },
+    {
+      "email": "fsunaycansev@gmail.com",
+      "password": "12345678",
+      "id": 32
+    },
+    {
+      "id": 33
     }
   ]
 }
