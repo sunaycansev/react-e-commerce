@@ -43,4 +43,5 @@ export const getAllUsers = async () => {
 
 export const logoutUser = async (input) => {
   const { data } = await axios.post("http://localhost:8000/users");
+  return data;
 };

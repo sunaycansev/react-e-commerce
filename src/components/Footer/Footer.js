@@ -110,6 +110,8 @@ const Footer = () => {
             <div className="copyright mt-5 pt-5 text-center">
               <p>
                 <small>© 2021-2022 All Rights Reserved.</small>
+                <br />
+                <small>Made by Sunay</small>
               </p>
             </div>
           </div>

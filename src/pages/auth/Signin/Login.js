@@ -11,8 +11,9 @@ import png from "../../../assets/signin-image.jpg";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { loginUser } from "../../../api";
 
-const Login = ({ history }) => {
+const Login = ({ history, location }) => {
   const { login } = useAuthContext();
+
   const {
     handleSubmit,
     handleChange,
@@ -37,7 +38,8 @@ const Login = ({ history }) => {
         console.log("loginresponse", loginResponse);
         if (!loginResponse) {
           // burada alert gösterilecek
-          history.push("/login");
+          window.location.reload();
+          // history.push("/login");
         } else {
           login(loginResponse[0]);
           history.push("/profile");

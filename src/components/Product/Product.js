@@ -3,14 +3,15 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./_Product.scss";
 import { FiShoppingCart } from "react-icons/fi";
+import { FaHeart, FaRandom } from "react-icons/fa";
 
 const Product = ({ product }) => {
   const { image, title, price, id } = product;
   return (
     <Card
-      border="dark"
+      // border="dark"
       style={{ width: "15rem" }}
-      className="my-5 mx-2 position-relative "
+      className="my-5 mx-2 position-relative shadow-sm "
     >
       <Link to={`/product/${product.id}`}>
         <Card.Img
@@ -29,7 +30,7 @@ const Product = ({ product }) => {
         </Link>
       </Card.Body>
       <Card.Text className="text-success fs-5 fw-bold">${price}</Card.Text>
-      <Button className="my-2" variant="primary" onClick={() => alert(id)}>
+      <Button className="my-2" variant="dark" onClick={() => alert(id)}>
         <FiShoppingCart className="me-2" /> Add to Cart
       </Button>
     </Card>

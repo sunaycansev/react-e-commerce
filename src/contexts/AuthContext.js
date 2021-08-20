@@ -9,13 +9,6 @@ const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const isUser = window.localStorage.getItem("logindata");
-  //   if (isUser) {
-  //     setLoggedIn(true);
-  //   }
-  // }, []);
-  //login function
   const login = (data) => {
     setLoggedIn(true);
     setUser(data);
@@ -32,14 +25,11 @@ const AuthProvider = ({ children }) => {
     callback();
   };
 
-  console.log(loggedIn);
-
   useEffect(() => {
     (async () => {
       try {
         const allUsers = await getAllUsers();
         const loginData = JSON.parse(localStorage.getItem("logindata"));
-        //console.log(logindata);
 
         if (loginData !== null) {
           const me = allUsers.filter(
@@ -49,7 +39,7 @@ const AuthProvider = ({ children }) => {
           );
           setLoggedIn(true);
           setUser(me[0]);
-          console.log(me[0]);
+          // console.log(me[0]);
         }
         //console.log(logindata);
       } catch (e) {
@@ -58,6 +48,7 @@ const AuthProvider = ({ children }) => {
       }
     })();
   }, []);
+  console.log(loggedIn);
 
   // get current user
 

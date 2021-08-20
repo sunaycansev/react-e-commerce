@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Product from "../Product/Product";
 import { useProductsContext } from "../../contexts/ProductsContext";
 
@@ -7,9 +7,13 @@ const ProductList = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="justify-content-center">
         {products.map((product) => (
-          <Product product={product} key={product.id} />
+          <Product
+            product={product}
+            key={product.id}
+            className="col-md-3 col-sm-6"
+          />
         ))}
       </Row>
     </Container>

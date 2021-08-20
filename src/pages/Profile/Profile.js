@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 function Profile({ history }) {
   const { user, logout } = useAuthContext();
   const handleLogout = async () => {
+    console.log("ddsa");
     logout(() => {
       history.push("/");
     });
