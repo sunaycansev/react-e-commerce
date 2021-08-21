@@ -1,6 +1,26 @@
-.about {
+.banner {
+}
+.bottom-section {
+  color: #666666;
   h1 {
-    margin-top: 5rem;
-    font-size: 2rem;
+    color: #222222;
+  }
+  .row {
+    .img-1-col {
+      .border-div {
+        border: 3px solid #999999;
+        .img-hover {
+          transform: translate(5%, -5%);
+        }
+      }
+    }
+    .img-2-col {
+      .border-2-div {
+        border: 3px solid #999999;
+        .img-2-hover {
+          transform: translate(-5%, -5%);
+        }
+      }
+    }
   }
 }

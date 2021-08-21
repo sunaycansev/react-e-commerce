@@ -66,11 +66,11 @@ const Product = ({ product }) => {
           <div className="btn-group d-flex flex-column align-items-center">
             <BsHeartFill className="icon fs-5" />
             <button
-              className="btn  btn-md btn-dark"
+              className="btn  btn-md btn-dark fs-6 font-monospace"
               onClick={() => addToCart(product)}
             >
               {/*<i className="cart-icon fas fa-shopping-cart me-2"></i>*/}
-              <FiShoppingCart className="me-2 cart-icon fs-4" />
+              <FiShoppingCart className="me-2 cart-icon fs-5" />
               Add to Card
             </button>
             {/*<i className="icon right fas fa-random"></i>*/}

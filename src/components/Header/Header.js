@@ -9,6 +9,10 @@ import { useCartContext } from "../../contexts/CartContext";
 const Header = () => {
   const { loggedIn } = useAuthContext();
   const { cart } = useCartContext();
+  const retrievedCartData = localStorage.getItem("cart");
+  const localeCart = JSON.parse(retrievedCartData);
+
+  console.log(localeCart);
 
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
@@ -51,7 +55,7 @@ const Header = () => {
                 className="position-absolute top-0 start-100 translate-middle rounded-pill text-dark"
                 bg="light"
               >
-                {cart.length}
+                {localeCart?.length ?? 0}
               </Badge>
             </Nav.Link>
           </Nav>

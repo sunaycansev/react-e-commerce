@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+$gray-text-color: rgb(51, 51, 51);
+
+banner {
+}
+.bottom-section {
+  font-family: "Poppins", sans-serif;
+  .row {
+    .form-col {
+      .form {
+        //border: 1px solid rgb(230, 230, 230);
+        h4 {
+          color: rgb(51, 51, 51);
+        }
+        .email-div {
+          position: relative;
+          #email {
+            font-size: 13px;
+            padding-left: 60px;
+            padding-right: 30px;
+            height: 60px;
+            outline: none;
+            border: 1px solid gray;
+            color: $gray-text-color;
+            background: transparent;
+          }
+          label {
+            transform: translateY(-50%);
+
+            position: absolute;
+            top: 50%;
+            left: 28px;
+            font-size: 23px;
+            color: $gray-text-color;
+          }
+        }
+
+        .msg-div {
+          textarea {
+            min-height: 200px;
+            font-size: 13px;
+            color: $gray-text-color;
+            padding: 25px 28px;
+            outline: none;
+            border: 1px solid gray;
+            background: transparent;
+            &:focus {
+              outline: none;
+            }
+          }
+          label {
+          }
+        }
+        button {
+          border-radius: 23px;
+          transition: all 1s ease-out;
+          border: none;
+          outline: none;
+        }
+        button:hover {
+          border: rgb(113, 127, 224);
+          background-color: rgb(113, 127, 224);
+        }
+      }
+    }
+  }
+}

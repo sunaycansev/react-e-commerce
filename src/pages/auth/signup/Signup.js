@@ -60,7 +60,7 @@ const Signup = ({ history }) => {
       {/*  </Row>*/}
       {/*</Container>*/}
 
-      <Container className=" p-5 signup-container my-5">
+      <Container className=" p-5 signup-container">
         <Row className="signup-content ">
           <Col className="d-flex justify-content-center align-items-center signup-form flex-column ">
             <h2 className="heading mx-auto text-center fw-bold fs-1">
@@ -73,7 +73,7 @@ const Signup = ({ history }) => {
                   htmlFor="email"
                   className="align-self-center"
                 >
-                  <GrMail className="mail-icon icon-size" />
+                  <GrMail className="mail-icon icon-size fs-5" />
                 </label>
                 <input
                   type="email"
@@ -81,7 +81,7 @@ const Signup = ({ history }) => {
                   name="email"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="w-100 d-block"
+                  className="w-100 d-block fs-6"
                   id="email"
                   value={values.email}
                 />
@@ -95,14 +95,14 @@ const Signup = ({ history }) => {
                   className=" align-self-center"
                   id="password-label"
                 >
-                  <BsLockFill className="password-icon icon-size" />
+                  <BsLockFill className="password-icon icon-size fs-5" />
                 </label>
                 <input
                   type="password"
                   placeholder="Password"
                   name="password"
                   id="password"
-                  className="w-100"
+                  className="w-100 fs-6"
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -117,14 +117,14 @@ const Signup = ({ history }) => {
                   className=" align-self-center"
                   id="passwordConfirm-label"
                 >
-                  <BsLock className="password-icon icon-size" />
+                  <BsLock className="password-icon icon-size fs-5" />
                 </label>
                 <input
                   type="password"
                   placeholder="Repeat your password"
                   name="passwordConfirm"
                   id="passwordConfirm"
-                  className="w-100"
+                  className="w-100 fs-6"
                   value={values.passwordConfirm}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -142,12 +142,12 @@ const Signup = ({ history }) => {
                   value={values.agree}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="agree-term d-inline-block my-2 me-2"
+                  className="agree-term d-inline-block my-2 me-2 fs-5 p-2"
                 />
 
                 <label
                   htmlFor="agree"
-                  className="label-agree-term float-end align-self-center mt-3"
+                  className="label-agree-term float-end align-self-center mt-3 fs-6 font-monospace"
                 >
                   I agree all statements in{" "}
                   <a
