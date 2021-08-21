@@ -6,8 +6,7 @@ $text-color: #121e2c;
 .product-grid {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  height: 100%;
-  min-height: 100%;
+  //height: 100%;
   box-sizing: border-box;
 
   .product-image {
@@ -15,6 +14,7 @@ $text-color: #121e2c;
 
     a.image {
       display: block;
+      background: transparent;
     }
     img {
       width: 100%;
@@ -24,6 +24,7 @@ $text-color: #121e2c;
       opacity: 1;
       backface-visibility: hidden;
       transition: all 0.3s ease-in-out;
+      vertical-align: middle;
     }
     .pic-2 {
       width: 100%;
@@ -61,6 +62,8 @@ $text-color: #121e2c;
   }
   .product-content {
     padding: 12px;
+    height: 100%;
+    min-height: 100%;
   }
   .rating {
     padding: 0;

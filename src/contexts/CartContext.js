@@ -11,27 +11,34 @@ const CartProvider = ({ children }) => {
     if (!isProduct) {
       const item = { ...data, count: 1 };
       setCart([item, ...cart]);
-      setLocalStorage("cart", item, cart);
+      // setLocalStorage("cart", item, cart);
+      window.localStorage.setItem("cart", JSON.stringify([item, ...cart]));
     } else {
-      const prevCart = cart.filter((product) => product.id !== data.id);
-      const newCart = cart
-        .filter((product) => product.id === data.id)
-        .map((product) => ({
-          ...product,
-          count: product.count + 1,
-          ...prevCart[0],
-        }));
-      console.log(newCart);
+      const thisProduct = cart.find((item) => item.id === data.id);
+      const otherProducts = cart.filter((item) => item.id !== data.id);
 
+      let newCart = [...cart];
+
+      let incrementProduct = {
+        ...thisProduct,
+        count: thisProduct.count + 1,
+      };
+
+      newCart = [incrementProduct, ...otherProducts];
+
+      console.log(newCart);
       setCart(newCart);
+
+      // setLocalStorage("cart", { ...newCart[0] }, prevCart);
       // console.log(cart);
-      setLocalStorage("cart", { ...newCart[0] }, prevCart);
+      // setLocalStorage("cart", { ...newCart[0] });
+      window.localStorage.setItem("cart", JSON.stringify(newCart));
     }
   };
   const removeCartItem = async (data) => {
     const newCart = cart.filter((item) => item.id !== data.id);
     setCart(newCart);
-    setLocalStorage("cart", newCart);
+    // setLocalStorage("cart", newCart);
     //önce filtreyle o ürünü bul
     // count 1 den fazlaysa -1
     // count 1 se sil

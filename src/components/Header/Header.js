@@ -5,8 +5,10 @@ import { ReactComponent as Logo } from "../../assets/monday-icon.svg";
 import { FiShoppingCart } from "react-icons/fi";
 import "./_Header.scss";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useCartContext } from "../../contexts/CartContext";
 const Header = () => {
   const { loggedIn } = useAuthContext();
+  const { cart } = useCartContext();
 
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
@@ -46,10 +48,10 @@ const Header = () => {
             <Nav.Link className="nav-link-cart position-relative" href="/cart">
               <FiShoppingCart />
               <Badge
-                className="position-absolute top-0 start-100 translate-middle rounded-pill"
-                bg="secondary"
+                className="position-absolute top-0 start-100 translate-middle rounded-pill text-dark"
+                bg="light"
               >
-                9
+                {cart.length}
               </Badge>
             </Nav.Link>
           </Nav>
