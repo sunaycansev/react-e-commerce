@@ -3,176 +3,74 @@ $main-color: #eb4d4b;
 $text-color: #121e2c;
 //font-family: 'Poppins', sans-serif;
 
-.product-grid {
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-  //height: 100%;
-  box-sizing: border-box;
+.btn-group {
+  position: relative;
 
-  .product-image {
-    position: relative;
+  .btn {
+    z-index: 5;
+  }
 
-    a.image {
-      display: block;
-      background: transparent;
-    }
-    img {
-      width: 100%;
-      height: auto;
-    }
-    .pic-1 {
-      opacity: 1;
-      backface-visibility: hidden;
-      transition: all 0.3s ease-in-out;
-      vertical-align: middle;
-    }
-    .pic-2 {
-      width: 100%;
-      height: auto;
-      backface-visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: all 0.3s ease-in-out;
-    }
+  .cart-icon {
+    display: none;
+    visibility: hidden;
+    transition: all 300ms linear;
   }
-  &:hover .product-image .pic-2 {
-    opacity: 1;
-  }
-  .product-sale-label,
-  .product-discount-label {
-    color: #fff;
-    background: #da5555;
-    font-size: 12px;
-    letter-spacing: 1px;
-    line-height: 14px;
-    padding: 5px 11px;
-    border-radius: 12px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    transition: all 0.4s ease;
-  }
-  .product-sale-label {
-    background: #2ba968;
-    text-transform: uppercase;
-    left: 10px;
-    right: auto;
-  }
-  .product-content {
-    padding: 12px;
-    height: 100%;
-    min-height: 100%;
-  }
-  .rating {
-    padding: 0;
-    margin: 0 0 7px;
-    list-style: none;
-    li {
-      //color: $text-color;
-      color: orange;
-      font-size: 17px;
-      display: inline-block;
-      &.disable {
-        color: rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-  .title {
-    color: $text-color;
-    font-size: 20px;
-    text-transform: capitalize;
-    margin: 0 0 7px;
-    a {
-      color: $text-color;
-      transition: add 500ms;
-      text-decoration: none;
-      &:hover {
-        color: $main-color;
-      }
-    }
-  }
-  .price {
-    color: $text-color;
-    font-size: 18px;
-    letter-spacing: 0.005em;
-    margin-bottom: 10px;
-    span {
-      color: #a7a7a7;
-      font-size: 14px;
-      font-weight: 400;
-      text-decoration: line-through;
-    }
-  }
-  .product-button-group {
-    position: relative;
-    z-index: 1;
-  }
-  .add-to-cart {
-    color: $text-color;
-    background: #f4f4f4;
-    font-size: 14px;
-    width: calc(100% - 75px);
-    padding: 8px 3px;
-    margin: 0 auto;
-    display: inline-block;
-    transition: all 0.25s ease 0s;
-    border: none;
 
-    svg {
-      margin-right: 8px;
-      display: none;
-      visibility: hidden;
-      transition: all 0.25s ease 0s;
-    }
-  }
-  &:hover {
-    .product-image {
-      .pic-1 {
-        opacity: 0;
-      }
-    }
-    .add-to-cart {
-      color: #fff;
-      background: $text-color;
-      svg {
-        display: inline-block;
-        visibility: visible;
-      }
-    }
-    .product-like-icon {
-      opacity: 1;
-      left: 0;
-    }
-    .product-compare-icon {
-      opacity: 1;
-      right: 0;
-    }
-  }
-  .product-like-icon,
-  .product-compare-icon {
-    color: $text-color;
-    background: #f4f4f4;
-    line-height: 34px;
-    width: 34px;
-    height: 34px;
-    opacity: 0;
-    transform: translateY(-50%);
+  .icon {
     position: absolute;
     top: 50%;
-    left: 50px;
-    z-index: -1;
-    transition: all 0.25s ease 0s;
-  }
-  .product-compare-icon {
-    left: auto;
-    right: 50px;
+    transform: translateY(-50%);
+    transition: all 300ms linear;
+    cursor: pointer;
   }
 }
 
-@media only screen and (max-width: 990px) {
-  .product-grid {
-    margin-bottom: 30px;
+.primary-image {
+  transition: all 300ms linear;
+  opacity: 1;
+}
+
+.secondary-image {
+  display: none;
+  backface-visibility: hidden;
+  transition: all 300ms linear;
+}
+
+.column:hover {
+  .icon {
+    opacity: 1;
+    transform: translate(-500%, -50%);
+  }
+
+  .left {
+    transform: translate(-500%, -50%);
+    //color: #212529;
+  }
+
+  .right {
+    transform: translate(400%, -50%);
+  }
+
+  .cart-icon {
+    display: inline;
+    visibility: visible;
+  }
+
+  .secondary-image {
+    backface-visibility: visible;
+    opacity: 1;
+    display: inline;
+  }
+
+  .primary-image {
+    display: none;
+    backface-visibility: hidden;
+    transition: all 300ms linear;
+  }
+
+  .btn {
+    background: white;
+    color: black;
+    border-color: black;
   }
 }
