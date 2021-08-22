@@ -39,20 +39,24 @@ const CartProvider = ({ children }) => {
 
     // login yaptı anda login() get o kişinin kartını alacak sonra localestorage ürünleri cartla birleştirecek ...spread
 
-    const isProduct = cart.some((item) => item.id === data.id);
-
-    if (!isProduct) {
-      const item = { ...data, count: 1 };
+    let isInCart = cart.some((item) => item.id === data.id);
+    let newCart = [];
+    let item = {};
+    let otherProducts = [];
+    let incrementedProduct;
+    let thisProduct;
+    if (!isInCart) {
+      item = { ...data, count: 1 };
       setCart([item, ...cart]);
       // setLocalStorage("cart", item, cart);
       window.localStorage.setItem("cart", JSON.stringify([item, ...cart]));
     } else {
-      const thisProduct = cart.find((item) => item.id === data.id);
-      const otherProducts = cart.filter((item) => item.id !== data.id);
+      thisProduct = cart.find((item) => item.id === data.id);
+      otherProducts = cart.filter((item) => item.id !== data.id);
 
-      let newCart = [...cart];
+      newCart = [...cart];
 
-      let incrementedProduct = {
+      incrementedProduct = {
         ...thisProduct,
         count: thisProduct.count + 1,
       };
@@ -66,6 +70,33 @@ const CartProvider = ({ children }) => {
       // console.log(cart);
       // setLocalStorage("cart", { ...newCart[0] });
       window.localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+    if (!loggedIn) {
+      return;
+    } else {
+      //axios post
+
+      const prevCart = await axios
+        .get(`http://localhost:8000/users/${user.id}`)
+        .then((res) => res.data.cart);
+      isInCart = prevCart.some((item) => item.id === data.id);
+
+      if (isInCart) {
+        thisProduct = cart.find((item) => item.id === data.id);
+        otherProducts = prevCart.filter((product) => product.id !== data.id);
+        incrementedProduct = {
+          ...thisProduct,
+          count: thisProduct.count + 1,
+        };
+      }
+
+      //const newCart = [...prevCart, { ...data, count: 1 }];
+      debugger;
+      axios.patch(`http://localhost:8000/users/${user.id}`, {
+        cart: isInCart
+          ? [incrementedProduct, ...otherProducts]
+          : [item, ...prevCart],
+      });
     }
   };
   const removeCartItem = async (data) => {
