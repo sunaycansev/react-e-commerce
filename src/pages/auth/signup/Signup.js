@@ -38,6 +38,7 @@ const Signup = ({ history }) => {
         const registerResponse = await registerUser({
           email: values.email,
           password: values.password,
+          cart: [],
         });
         // console.log("registerresponse", registerResponse);
         login(registerResponse);

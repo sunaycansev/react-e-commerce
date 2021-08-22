@@ -21,7 +21,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/cart" component={Cart} />
+        <Route path="/cart" exact component={Cart} />
         <ProtectedRoute path="/profile" component={Profile} />
         <Route path="/product/:productId" component={ProductDetail} />
         <Route component={NotFound} />

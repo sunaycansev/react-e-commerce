@@ -1,12 +1,44 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import { setLocalStorage } from "../utils";
+import { useAuthContext } from "./AuthContext";
+import axios from "axios";
 
 export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const { loggedIn, user } = useAuthContext();
   const defaultCart = JSON.parse(localStorage.getItem("cart")) || [];
+  //TODO
+  /*
+  --database kontrolü yap ve fetch ile userın cartını alarak default cart yap
+
+
+   */
+  useEffect(() => {
+    const fetchCart = async () => {
+      if (loggedIn && user) {
+        const { data } = await axios.get(
+          `http://localhost:8000/users/${user.id}`
+        );
+        const userCart = data.cart;
+
+        setCart(userCart);
+      } else {
+        setCart(defaultCart);
+      }
+    };
+    fetchCart();
+  }, [loggedIn, user]);
 
   const addToCart = async (data) => {
+    //  giriş yaptıysa kontrol et
+
+    //true ise o ürünü kişinin cartına pushla localestorage at carta at
+
+    // false ise o ürünü sepete ve lcoalstorage a at
+
+    // login yaptı anda login() get o kişinin kartını alacak sonra localestorage ürünleri cartla birleştirecek ...spread
+
     const isProduct = cart.some((item) => item.id === data.id);
 
     if (!isProduct) {

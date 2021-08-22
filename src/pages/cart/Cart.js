@@ -4,6 +4,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import { useCartContext } from "../../contexts/CartContext";
 
 const Cart = () => {
+  debugger;
   const { user } = useAuthContext();
   const { cart, clearCart } = useCartContext();
   console.log(cart);
@@ -12,7 +13,7 @@ const Cart = () => {
       <Header />
       <h1>cart page</h1>
       <button onClick={() => clearCart()}>clear cart</button>
-      <code>{cart}</code>
+      <code>{JSON.stringify(cart, null, 2)}</code>
     </div>
   );
 };
