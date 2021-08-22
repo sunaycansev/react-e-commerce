@@ -1,0 +1,8 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "dependencies": {},
+  "scripts": {
+    "start": "npx json-server --watch db.json --port 8000"
+  }
+}

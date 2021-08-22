@@ -35,7 +35,7 @@ const Login = ({ history, location }) => {
           email: values.email,
           password: values.password,
         });
-        console.log("loginresponse", loginResponse);
+        //console.log("loginresponse", loginResponse);
         if (!loginResponse) {
           // burada alert gösterilecek
           window.location.reload();

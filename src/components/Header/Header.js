@@ -10,9 +10,10 @@ const Header = () => {
   const { loggedIn } = useAuthContext();
   const { cart } = useCartContext();
   const retrievedCartData = localStorage.getItem("cart");
-  const localeCart = JSON.parse(retrievedCartData);
+  const localeStorageCart = JSON.parse(retrievedCartData);
 
-  console.log(localeCart);
+  //console.log(localeStorageCart);
+  console.log(cart);
 
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
@@ -51,11 +52,12 @@ const Header = () => {
             )}
             <Nav.Link className="nav-link-cart position-relative" href="/cart">
               <FiShoppingCart />
+
               <Badge
                 className="position-absolute top-0 start-100 translate-middle rounded-pill text-dark"
                 bg="light"
               >
-                {localeCart?.length ?? 0}
+                {cart?.length ?? 0}
               </Badge>
             </Nav.Link>
           </Nav>

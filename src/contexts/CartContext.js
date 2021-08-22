@@ -4,6 +4,7 @@ import { setLocalStorage } from "../utils";
 export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const defaultCart = JSON.parse(localStorage.getItem("cart")) || [];
 
   const addToCart = async (data) => {
     const isProduct = cart.some((item) => item.id === data.id);
@@ -19,12 +20,12 @@ const CartProvider = ({ children }) => {
 
       let newCart = [...cart];
 
-      let incrementProduct = {
+      let incrementedProduct = {
         ...thisProduct,
         count: thisProduct.count + 1,
       };
 
-      newCart = [incrementProduct, ...otherProducts];
+      newCart = [incrementedProduct, ...otherProducts];
 
       console.log(newCart);
       setCart(newCart);
@@ -43,10 +44,37 @@ const CartProvider = ({ children }) => {
     // count 1 den fazlaysa -1
     // count 1 se sil
   };
+  const decreaseCartItem = async (data) => {
+    const thisProduct = cart.filter((product) => product.id === data.id);
+    const otherProducts = cart.filter((product) => product.id !== data.id);
+    let newCart = [...cart];
+    // if the count of prod is bigger than 1 just decrease its count else remove it from cart
+    if (thisProduct.count > 1) {
+      let decrementedProduct = {
+        ...thisProduct,
+        count: thisProduct.count - 1,
+      };
+      newCart = [...decrementedProduct, ...otherProducts];
+    } else {
+      newCart = cart.filter((product) => product.id !== data.id);
+    }
+
+    setCart(newCart);
+  };
 
   //clearCart fonk
+  const clearCart = async (data) => {
+    setCart([]);
+  };
 
-  const value = { cart, setCart, addToCart, removeCartItem };
+  const value = {
+    cart,
+    setCart,
+    addToCart,
+    removeCartItem,
+    decreaseCartItem,
+    clearCart,
+  };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
