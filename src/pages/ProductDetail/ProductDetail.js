@@ -93,7 +93,11 @@ function ProductDetail() {
               <Button variant="outline-dark" className="mx-5">
                 Find in Store
               </Button>
-              <Button variant="outline-dark" className="mx-5">
+              <Button
+                variant="outline-dark"
+                className="mx-5"
+                onClick={() => removeCartItem(thisProduct)}
+              >
                 Remove From Cart
               </Button>
               <Button variant="outline-dark" className="mx-5">

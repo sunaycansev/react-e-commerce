@@ -2,6 +2,7 @@ import { useState, createContext, useContext, useEffect } from "react";
 import { setLocalStorage } from "../utils";
 import { useAuthContext } from "./AuthContext";
 import axios from "axios";
+import { setLocale } from "yup";
 
 export const CartContext = createContext();
 const CartProvider = ({ children }) => {
@@ -95,10 +96,22 @@ const CartProvider = ({ children }) => {
   const removeCartItem = async (data) => {
     const newCart = cart.filter((item) => item.id !== data.id);
     setCart(newCart);
-    // setLocalStorage("cart", newCart);
-    //önce filtreyle o ürünü bul
-    // count 1 den fazlaysa -1
-    // count 1 se sil
+    //TODO
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
+    //TODO
+    if (!loggedIn) {
+      return;
+    } else {
+      const prevCart = await axios
+        .get(`http://localhost:8000/users/${user.id}`)
+        .then((res) => res.data.cart);
+      const newCart = prevCart.filter((product) => product.id !== data.id);
+
+      axios.patch(`http://localhost:8000/users/${user.id}`, {
+        cart: newCart,
+      });
+    }
   };
   const decreaseCartItem = async (data) => {
     const thisProduct = cart.filter((product) => product.id === data.id);

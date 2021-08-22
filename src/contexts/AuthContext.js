@@ -36,6 +36,7 @@ const AuthProvider = ({ children }) => {
     setLoggedIn(false);
     setUser(null);
     localStorage.removeItem("logindata");
+    localStorage.removeItem("cart");
     await logoutUser();
 
     //current user id si al
