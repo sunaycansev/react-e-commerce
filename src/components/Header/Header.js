@@ -15,7 +15,7 @@ const Header = () => {
   const localeStorageCart = JSON.parse(retrievedCartData);
 
   //console.log(localeStorageCart);
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <Navbar expand="lg" className="navbar" variant="dark">

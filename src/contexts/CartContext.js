@@ -13,6 +13,7 @@ const CartProvider = ({ children }) => {
   --database kontrolü yap ve fetch ile userın cartını alarak default cart yap
 
 
+
    */
   useEffect(() => {
     const fetchCart = async () => {
@@ -31,14 +32,6 @@ const CartProvider = ({ children }) => {
   }, [loggedIn, user]);
 
   const addToCart = async (data) => {
-    //  giriş yaptıysa kontrol et
-
-    //true ise o ürünü kişinin cartına pushla localestorage at carta at
-
-    // false ise o ürünü sepete ve lcoalstorage a at
-
-    // login yaptı anda login() get o kişinin kartını alacak sonra localestorage ürünleri cartla birleştirecek ...spread
-
     let isInCart = cart.some((item) => item.id === data.id);
     let newCart = [];
     let item = {};
@@ -91,7 +84,7 @@ const CartProvider = ({ children }) => {
       }
 
       //const newCart = [...prevCart, { ...data, count: 1 }];
-      debugger;
+
       axios.patch(`http://localhost:8000/users/${user.id}`, {
         cart: isInCart
           ? [incrementedProduct, ...otherProducts]

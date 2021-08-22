@@ -14,6 +14,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { useProductsContext } from "../../contexts/ProductsContext";
+import { useCartContext } from "../../contexts/CartContext";
 import { FiShoppingCart } from "react-icons/fi";
 import { GiHanger } from "react-icons/gi";
 import { Tab } from "bootstrap";
@@ -21,9 +22,11 @@ import { Tab } from "bootstrap";
 function ProductDetail() {
   const { productId } = useParams();
   const { products } = useProductsContext();
-  const [details] = products.filter(
+  const { addToCart, removeCartItem, decreaseCartItem } = useCartContext();
+  const [thisProduct] = products.filter(
     (product) => Number(productId) === Number(product.id)
   );
+  console.log(thisProduct);
 
   return (
     <React.Fragment>
@@ -35,18 +38,18 @@ function ProductDetail() {
               md={4}
               className="mb-4 img-container  d-flex justify-content-center align-items-center p-3"
             >
-              <Image className="w-100" src={details?.image} rounded />
+              <Image className="w-100" src={thisProduct?.image} rounded />
             </Col>
             <Col md={8} className=" p-3">
-              <h5 className="my-3">{details?.title}</h5>
+              <h5 className="my-3">{thisProduct?.title}</h5>
               <p className="mb-2 text-muted text-uppercase small">
-                {details?.category}
+                {thisProduct?.category}
               </p>
               <p className="pt-1 lh-base font-monospace">
-                {details?.description}
+                {thisProduct?.description}
               </p>
               <p className="mr-1 fw-bold font-monospace text-success fs-5">
-                ${details?.price}
+                ${thisProduct?.price}
               </p>
               <Row>
                 <Col md={3}>
@@ -67,32 +70,47 @@ function ProductDetail() {
                   className="justify-content-end align-items-center flex-row d-flex"
                 >
                   <GiHanger className="align-self-center justify-content-center me-2" />
-                  <a href={`/product/${details?.id}#`} className="text-muted ">
+                  <a
+                    href={`/product/${thisProduct?.id}#`}
+                    className="text-muted "
+                  >
                     Find your fit Assistant Size
                   </a>
                 </Col>
               </Row>
 
               <hr />
-              <Button variant="dark" className="px-4">
+              <Button
+                variant="dark"
+                className="px-4"
+                onClick={() => {
+                  addToCart(thisProduct);
+                }}
+              >
                 <FiShoppingCart className="me-2" />
                 Add To Cart
               </Button>
               <Button variant="outline-dark" className="mx-5">
                 Find in Store
               </Button>
+              <Button variant="outline-dark" className="mx-5">
+                Remove From Cart
+              </Button>
+              <Button variant="outline-dark" className="mx-5">
+                Decrease From Cart
+              </Button>
             </Col>
           </Row>
         </section>
       </Container>
-      <Container>
+      <Container className="bottom-container">
         <section>
           <Row>
             <Col>
               <Tabs
                 defaultActiveKey="details"
                 id="uncontrolled-tab-example"
-                className="mb-3"
+                className="mb-5"
               >
                 <Tab eventKey="details" title="details">
                   <h4>Additional Information</h4>
@@ -100,7 +118,7 @@ function ProductDetail() {
                     <thead>
                       <tr>
                         <th>Category</th>
-                        <td>{details?.category}</td>
+                        <td>{thisProduct?.category}</td>
                       </tr>
                       <tr>
                         <th>Weight</th>
@@ -145,7 +163,7 @@ function ProductDetail() {
           </Row>
         </section>
       </Container>
-      {/*<Footer />*/}
+      <Footer />
     </React.Fragment>
   );
 }

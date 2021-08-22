@@ -18,7 +18,7 @@ function Profile({ history }) {
       <Header />
       <h1>profil bilgileri</h1>
       <code>{JSON.stringify(cart)}</code>
-      <h1>profile page</h1>
+
       <Button variant="danger" onClick={handleLogout}>
         Logout
       </Button>
