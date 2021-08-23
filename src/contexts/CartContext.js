@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import { setLocalStorage } from "../utils";
+
 import { useAuthContext } from "./AuthContext";
 import axios from "axios";
 import { setLocale } from "yup";
@@ -57,7 +57,7 @@ const CartProvider = ({ children }) => {
 
       newCart = [incrementedProduct, ...otherProducts];
 
-      console.log(newCart);
+      //console.log(newCart);
       setCart(newCart);
 
       // setLocalStorage("cart", { ...newCart[0] }, prevCart);
@@ -114,26 +114,66 @@ const CartProvider = ({ children }) => {
     }
   };
   const decreaseCartItem = async (data) => {
-    const thisProduct = cart.filter((product) => product.id === data.id);
+    const thisProduct = cart.find((product) => product.id === data.id);
     const otherProducts = cart.filter((product) => product.id !== data.id);
-    let newCart = [...cart];
-    // if the count of prod is bigger than 1 just decrease its count else remove it from cart
+    const prevCart = [...cart];
     if (thisProduct.count > 1) {
       let decrementedProduct = {
         ...thisProduct,
         count: thisProduct.count - 1,
       };
-      newCart = [...decrementedProduct, ...otherProducts];
+
+      const newCart = [decrementedProduct, ...otherProducts];
+      setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     } else {
-      newCart = cart.filter((product) => product.id !== data.id);
+      const newCart = prevCart.filter((product) => product.id !== data.id);
+      setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     }
 
-    setCart(newCart);
+    if (!loggedIn) {
+      return;
+    } else {
+      const prevCart = await axios
+        .get(`http://localhost:8000/users/${user.id}`)
+        .then((res) => res.data.cart);
+      const thisProduct = prevCart.find((product) => product.id === data.id);
+      const otherProducts = prevCart.filter(
+        (product) => product.id !== data.id
+      );
+      if (thisProduct.count > 1) {
+        let decrementedProduct = {
+          ...thisProduct,
+          count: thisProduct.count - 1,
+        };
+        const newCart = [decrementedProduct, ...otherProducts];
+        axios.patch(`http://localhost:8000/users/${user.id}`, {
+          cart: newCart,
+        });
+      } else {
+        const prevCart = await axios
+          .get(`http://localhost:8000/users/${user.id}`)
+          .then((res) => res.data.cart);
+        const newCart = prevCart.filter((product) => product.id !== data.id);
+        axios.patch(`http://localhost:8000/users/${user.id}`, {
+          cart: newCart,
+        });
+      }
+    }
   };
 
   //clearCart fonk
   const clearCart = async (data) => {
     setCart([]);
+    localStorage.removeItem("cart");
+    if (!loggedIn) {
+      return;
+    } else {
+      axios.patch(`http://localhost:8000/users/${user.id}`, {
+        cart: [],
+      });
+    }
   };
 
   const value = {

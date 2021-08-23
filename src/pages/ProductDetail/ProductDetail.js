@@ -26,7 +26,6 @@ function ProductDetail() {
   const [thisProduct] = products.filter(
     (product) => Number(productId) === Number(product.id)
   );
-  console.log(thisProduct);
 
   return (
     <React.Fragment>
@@ -100,7 +99,11 @@ function ProductDetail() {
               >
                 Remove From Cart
               </Button>
-              <Button variant="outline-dark" className="mx-5">
+              <Button
+                variant="outline-dark"
+                className="mx-5"
+                onClick={() => decreaseCartItem(thisProduct)}
+              >
                 Decrease From Cart
               </Button>
             </Col>
