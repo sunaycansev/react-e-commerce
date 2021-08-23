@@ -3,7 +3,9 @@ import Header from "../../components/Header/Header";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useCartContext } from "../../contexts/CartContext";
 import Footer from "../../components/Footer/Footer";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
+import { BsInfoCircle, BsChevronDown } from "react-icons/bs";
+import { FaCcVisa } from "react-icons/fa";
 
 const Cart = () => {
   const { user } = useAuthContext();
@@ -64,7 +66,7 @@ const Cart = () => {
                                       id="passwordHelpBlock"
                                       className="for-text text-muted text-center"
                                     >
-                                      (note,1piece)
+                                      {`note ${product.count} piece`}
                                     </small>
                                   </div>
                                 </div>
@@ -84,12 +86,65 @@ const Cart = () => {
                         </React.Fragment>
                       );
                     })}
+                    <p className="text-primary mb-0">
+                      <span>
+                        <BsInfoCircle />
+                      </span>
+                      Do not delay the purchase, adding items to your cart does
+                      not mean booking them.
+                    </p>
                   </div>
                 </div>
-                <div className="card mb-4"> </div>
-                <div className="card-mb-4"></div>
+                <div className="card mb-4">
+                  <div className="card-body">
+                    <h5 className="mb-4">Expected shipping delivery</h5>
+                    <p className="mb-0">(date i yaz)</p>
+                  </div>
+                </div>
+                <div className="card mb-4">
+                  <div className="card-body">
+                    <h5 className="mb-4">We accept</h5>
+                    <FaCcVisa />
+                    <FaCcVisa />
+                    <FaCcVisa />
+                    <FaCcVisa />
+                  </div>
+                </div>
               </Col>
-              <Col lg={4}></Col>
+              <Col lg={4}>
+                <div className="card mb-4 p-3">
+                  <div className="card-body ">
+                    <h5 className="mb-3">The Total amount of</h5>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                        <span>Temporary amount</span>
+                        <span>$399</span>
+                      </li>
+                      <li className="list-group-item d-flex justify-content-between align-items-center border-bottom-1  px-0 pb-0">
+                        <span>Shipping</span>
+                        <span>$13.99</span>
+                      </li>
+                      <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                        <div>
+                          <strong>The Total amount of</strong>
+                          <strong>including VAT</strong>
+                        </div>
+                        <span>
+                          <span>$99.99</span>
+                        </span>
+                      </li>
+                    </ul>
+                    <button
+                      variant="primary"
+                      className="btn-block btn btn-primary"
+                    >
+                      go to checkout
+                    </button>
+                  </div>
+                </div>
+                {/*TODO discount coupon bölümü*/}
+                <div className="card mb-4"></div>
+              </Col>
             </Row>
           </section>
         </Container>
