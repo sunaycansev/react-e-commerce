@@ -15,14 +15,14 @@ const Header = () => {
   const localeStorageCart = JSON.parse(retrievedCartData);
 
   //console.log(localeStorageCart);
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
       <Container>
-        <Navbar.Brand href="/">
+        <Link to="/">
           <Logo />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="nav-links">
           <Nav>
