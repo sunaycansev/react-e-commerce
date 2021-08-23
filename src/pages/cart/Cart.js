@@ -8,8 +8,10 @@ import { BsInfoCircle, BsHeart } from "react-icons/bs";
 import { FaTrash, FaCcPaypal, FaCcMastercard } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 import { SiAmericanexpress } from "react-icons/si";
-
 import { FaCcVisa } from "react-icons/fa";
+import masterCard from "../../assets/mastercard.png";
+import visaCard from "../../assets/visa-logo-png-2020.png";
+import paypalCard from "../../assets/paypal-svgrepo-com.svg";
 
 const Cart = () => {
   const { cart, clearCart, addToCart, removeCartItem, decreaseCartItem } =
@@ -145,10 +147,25 @@ const Cart = () => {
                 <div className="card mb-4">
                   <div className="card-body">
                     <h5 className="mb-4">We accept</h5>
-                    <FaCcVisa className="me-4 fs-1" />
-                    <SiAmericanexpress className="me-4 fs-1" />
-                    <FaCcPaypal className="me-4 fs-1" />
-                    <FaCcMastercard className="me-4 fs-1" />
+                    <img
+                      src={visaCard}
+                      alt="visa"
+                      style={{ width: "4rem" }}
+                      className="me-3"
+                    />
+
+                    <img
+                      className="me-3"
+                      src={paypalCard}
+                      alt="paypal"
+                      style={{ width: "6rem" }}
+                    />
+
+                    <img
+                      src={masterCard}
+                      alt="masterCard"
+                      style={{ width: "6rem" }}
+                    />
                   </div>
                 </div>
               </Col>
@@ -182,15 +199,40 @@ const Cart = () => {
                     </button>
                   </div>
                 </div>
-                {/*TODO discount coupon bölümü*/}
-                <div className="card mb-4"></div>
+
+                <div className="mb-4">
+                  <h5 className="text-center my-3 text-capitalize text-lighter fs-6">
+                    do you have a promo code ?
+                  </h5>
+                  <form>
+                    <div>
+                      <input
+                        type="text"
+                        className="w-100 d-block my-3 px-2"
+                        style={{
+                          fontSize: "16px",
+                          height: "48px",
+                          background: "transparent",
+                          border: "1px solid #43434d",
+                          borderRadius: "0",
+                          color: "#000",
+                          width: "100%",
+                        }}
+                        placeholder="ENTER PROMO CODE"
+                      />
+                    </div>
+                  </form>
+                  <button className="btn btn-dark d-block w-100  rounded-0">
+                    Apply
+                  </button>
+                </div>
               </Col>
             </Row>
           </section>
         </Container>
       </main>
 
-      {/*<Footer />*/}
+      <Footer />
     </>
   );
 };
