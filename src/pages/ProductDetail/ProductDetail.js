@@ -106,6 +106,13 @@ function ProductDetail() {
               >
                 Decrease From Cart
               </Button>
+              <Button
+                variant="outline-dark"
+                className="mx-5"
+                onClick={() => addToCart(thisProduct)}
+              >
+                ıncrease From Cart
+              </Button>
             </Col>
           </Row>
         </section>

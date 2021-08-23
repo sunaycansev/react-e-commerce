@@ -113,6 +113,12 @@ const CartProvider = ({ children }) => {
       });
     }
   };
+  // const increaseCartItem = async (data) => {
+  //   const thisProduct = cart.find(product => product.id === data.id);
+  //   const otherProducts = cart.filter((product) => product.id !== data.id);
+  //   const prevCart = [...cart];
+  //
+  // }
   const decreaseCartItem = async (data) => {
     const thisProduct = cart.find((product) => product.id === data.id);
     const otherProducts = cart.filter((product) => product.id !== data.id);
