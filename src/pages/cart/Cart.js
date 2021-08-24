@@ -3,19 +3,25 @@ import Header from "../../components/Header/Header";
 
 import { useCartContext } from "../../contexts/CartContext";
 import Footer from "../../components/Footer/Footer";
-import { Col, Container, Row } from "react-bootstrap";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 import { BsInfoCircle, BsHeart } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
-import { MdLocalShipping } from "react-icons/md";
+import { MdLocalShipping, MdRemoveShoppingCart } from "react-icons/md";
 
 import masterCard from "../../assets/mastercard.png";
 import visaCard from "../../assets/visa-logo-png-2020.png";
 import paypalCard from "../../assets/paypal-svgrepo-com.svg";
 
 const Cart = () => {
-  const { cart, clearCart, addToCart, removeCartItem, decreaseCartItem } =
-    useCartContext();
+  const {
+    cart,
+    clearCart,
+    addToCart,
+    removeCartItem,
+    decreaseCartItem,
+    increaseCartItem,
+  } = useCartContext();
   console.log(cart);
   const temporaryAmountOfCart = Number(
     cart.reduce((acc, prod) => acc + prod.price * prod.count, 0).toFixed(2)
@@ -36,6 +42,25 @@ const Cart = () => {
                 <div className="card wish-list mb-4 shadow-lg p-3">
                   <div className="card-body">
                     <h5 className="mb-4 fs-5">{`Cart (${cart.length} items) `}</h5>
+                    {/*TODO*/}
+                    {cart.length === 0 && (
+                      <div className="">
+                        {/*<h2 className="text-danger text-center">*/}
+                        {/*  <span>*/}
+                        {/*    <MdRemoveShoppingCart />*/}
+                        {/*  </span>{" "}*/}
+                        {/*  Cart is Empty*/}
+                        {/*</h2>*/}
+                        <Alert variant="danger">
+                          <h4 className="text-center">
+                            <span>
+                              <MdRemoveShoppingCart className="me-3" />
+                            </span>
+                            Your shopping cart is empty
+                          </h4>
+                        </Alert>
+                      </div>
+                    )}
                     {cart.map((product, i) => {
                       return (
                         <React.Fragment key={i}>
@@ -92,7 +117,9 @@ const Cart = () => {
                                       />
                                       <button
                                         className="plus btn btn-sm btn-outline-dark rounded-1 px-3 "
-                                        onClick={() => addToCart(product)}
+                                        onClick={() =>
+                                          increaseCartItem(product)
+                                        }
                                       >
                                         <span className="fw-bolder fs-6">
                                           +
@@ -142,7 +169,7 @@ const Cart = () => {
                     <p className="mb-0 fs-6">
                       {" "}
                       <span>
-                        <MdLocalShipping className="me-2" />
+                        <MdLocalShipping className="me-2 fs-3 text-success" />
                       </span>{" "}
                       Thu., 12.03. - Mon., 21.09.
                     </p>

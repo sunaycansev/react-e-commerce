@@ -168,6 +168,37 @@ const CartProvider = ({ children }) => {
       }
     }
   };
+  const increaseCartItem = async (data) => {
+    const thisProduct = cart.find((product) => product.id === data.id);
+    const otherProducts = cart.filter((product) => product.id !== data.id);
+    const prevCart = [...cart];
+    let incrementedProduct = {
+      ...thisProduct,
+      count: thisProduct.count + 1,
+    };
+    const newCart = [incrementedProduct, ...otherProducts];
+    setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    if (!loggedIn) {
+      return;
+    } else {
+      const prevCart = await axios
+        .get(`http://localhost:8000/users/${user.id}`)
+        .then((res) => res.data.cart);
+      const thisProduct = prevCart.find((product) => product.id === data.id);
+      const otherProducts = prevCart.filter(
+        (product) => product.id !== data.id
+      );
+      let incrementedProduct = {
+        ...thisProduct,
+        count: thisProduct.count + 1,
+      };
+      const newCart = [...otherProducts, incrementedProduct];
+      axios.patch(`http://localhost:8000/users/${user.id}`, {
+        cart: newCart,
+      });
+    }
+  };
 
   //clearCart fonk
   const clearCart = async (data) => {
@@ -189,6 +220,7 @@ const CartProvider = ({ children }) => {
     removeCartItem,
     decreaseCartItem,
     clearCart,
+    increaseCartItem,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
