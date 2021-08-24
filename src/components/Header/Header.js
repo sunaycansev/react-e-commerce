@@ -26,6 +26,7 @@ const Header = () => {
             <Link className="nav-link" to="/">
               Shop
             </Link>
+
             <Link className="nav-link" to="/contact">
               Contact
             </Link>
