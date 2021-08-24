@@ -40,6 +40,7 @@ const Login = ({ history, location }) => {
           window.location.reload();
           // history.push("/login");
         } else {
+          login(loginResponse[0]);
           history.push("/profile");
         }
       } catch (e) {

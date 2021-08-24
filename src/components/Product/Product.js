@@ -30,7 +30,7 @@ const Product = ({ product }) => {
     <div key={id} className="column col-sm-6 col-md-4 col-lg-3 my-3">
       <div
         style={{ height: "100%" }}
-        className="product d-flex flex-column m-0  p-2 shadow-lg rounded"
+        className="product d-flex flex-column m-0  p-2 shadow-lg rounded bg-white"
       >
         <Link
           className="text-decoration-none text-center text-dark"

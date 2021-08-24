@@ -2,7 +2,6 @@ import { useState, createContext, useContext, useEffect } from "react";
 
 import { useAuthContext } from "./AuthContext";
 import axios from "axios";
-import { setLocale } from "yup";
 
 export const CartContext = createContext();
 const CartProvider = ({ children }) => {
@@ -39,6 +38,7 @@ const CartProvider = ({ children }) => {
     let otherProducts = [];
     let incrementedProduct;
     let thisProduct;
+
     if (!isInCart) {
       item = { ...data, count: 1 };
       setCart([item, ...cart]);
@@ -176,7 +176,7 @@ const CartProvider = ({ children }) => {
       ...thisProduct,
       count: thisProduct.count + 1,
     };
-    const newCart = [incrementedProduct, ...otherProducts];
+    const newCart = [...otherProducts, incrementedProduct];
     setCart(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
     if (!loggedIn) {
