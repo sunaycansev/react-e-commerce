@@ -37,7 +37,10 @@ function Profile({ history }) {
                   </span>{" "}
                   <br />
                 </button>
-                <button className="card-link btn btn-sm btn-danger px-3">
+                <button
+                  className="card-link btn btn-sm btn-danger px-3"
+                  onClick={handleLogout}
+                >
                   Logout
                   <span>
                     <FiLogOut className="ms-3" />

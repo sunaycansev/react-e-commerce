@@ -7,7 +7,7 @@ export const registerUser = async (input) => {
 
 export const loginUser = async (input) => {
   const { data } = await axios.get("http://localhost:8000/users");
-  console.log(data);
+
   let isUser = data.filter(
     (user) => user.email === input.email && user.password === input.password
   );

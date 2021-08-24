@@ -21,7 +21,7 @@ const Header = () => {
           <Logo />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="nav-links">
+        <Navbar.Collapse id="basic-navbar-nav" className="nav-links ">
           <Nav>
             <Link className="nav-link" to="/">
               Shop

@@ -14,10 +14,8 @@ function Slider() {
                 alt="First slide"
               />
               <Carousel.Caption className="position-absolute top-0 start-0 text-start ps-5">
-                <h3 className="fs-1 font-monospace">First slide label</h3>
-                <p className="fs-2">
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
+                <h3 className="fs-1 font-monospace"></h3>
+                <p className="fs-2"></p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -28,10 +26,10 @@ function Slider() {
               />
 
               <Carousel.Caption className="position-absolute top-0 end-0 text-end pe-5">
-                <h3 className="fs-1 font-monospace">Second slide label</h3>
-                <p className="fs-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
+                {/*<h3 className="fs-1 font-monospace">Second slide label</h3>*/}
+                {/*<p className="fs-2">*/}
+                {/*  Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+                {/*</p>*/}
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -42,11 +40,8 @@ function Slider() {
               />
 
               <Carousel.Caption className="position-absolute top-0 start-0 text-start ps-3">
-                <h3 className="fs-1 font-monospace">Third slide label</h3>
-                <p className="fs-3">
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
+                <h3 className="fs-1 font-monospace">STYLE YOUR CONFIDENCE</h3>
+                <p className="fs-3">Living in VRG GRL</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
