@@ -137,7 +137,10 @@ const Cart = () => {
                                       <FaTrash className="fs-5" />
                                     </button>
                                     <button className="btn rounded-0 btn-outline-dark pt-1 px-2">
-                                      <BsHeart className="fs-5" />
+                                      <BsHeart
+                                        className="fs-5"
+                                        style={{ color: "red" }}
+                                      />
                                     </button>
                                   </div>
                                   <p className="mb-0 text-success fw-bolder fs-5">
