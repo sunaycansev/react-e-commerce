@@ -3,12 +3,12 @@ import Header from "../../components/Header/Header";
 
 import { useCartContext } from "../../contexts/CartContext";
 import Footer from "../../components/Footer/Footer";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { BsInfoCircle, BsHeart } from "react-icons/bs";
-import { FaTrash, FaCcPaypal, FaCcMastercard } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+
 import { MdLocalShipping } from "react-icons/md";
-import { SiAmericanexpress } from "react-icons/si";
-import { FaCcVisa } from "react-icons/fa";
+
 import masterCard from "../../assets/mastercard.png";
 import visaCard from "../../assets/visa-logo-png-2020.png";
 import paypalCard from "../../assets/paypal-svgrepo-com.svg";
@@ -17,10 +17,14 @@ const Cart = () => {
   const { cart, clearCart, addToCart, removeCartItem, decreaseCartItem } =
     useCartContext();
   console.log(cart);
-  const totalAmountOfCart = cart.reduce(
-    (acc, prod) => acc + prod.price * prod.count,
-    0
+  const temporaryAmountOfCart = Number(
+    cart.reduce((acc, prod) => acc + prod.price * prod.count, 0).toFixed(2)
   );
+  const shipAmount = Number((temporaryAmountOfCart / 15).toFixed(2));
+  const totalAmountOfCart = Number(
+    (temporaryAmountOfCart + shipAmount).toFixed(2)
+  );
+
   return (
     <>
       <Header />
@@ -36,8 +40,8 @@ const Cart = () => {
                       return (
                         <React.Fragment key={i}>
                           <div className="row mb-4">
-                            <div className="col-md-5 col-lg-3 col-xl-3">
-                              <div className="image  mb-3">
+                            <div className="col-md-5 col-lg-3 col-xl-3  ">
+                              <div className="image   mb-3">
                                 <img
                                   style={{ height: "100%", width: "100%" }}
                                   src={product.image}
@@ -177,12 +181,14 @@ const Cart = () => {
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                         <span className=" fw-bold mb-3">Temporary amount</span>
                         <span className="text-success fw-bolder">
-                          ${totalAmountOfCart}
+                          ${temporaryAmountOfCart}
                         </span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center border-bottom-1  px-0 pb-0">
                         <span className="fw-bold mb-3">Shipping</span>
-                        <span className="text-success fw-bolder">$13.99</span>
+                        <span className="text-success fw-bolder">
+                          ${shipAmount}
+                        </span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                         <div className="mb-3">
@@ -190,7 +196,9 @@ const Cart = () => {
                           <strong>(including VAT)</strong>
                         </div>
                         <span>
-                          <span className="text-success fw-bolder">$99.99</span>
+                          <span className="text-success fw-bolder">
+                            ${totalAmountOfCart}
+                          </span>
                         </span>
                       </li>
                     </ul>
