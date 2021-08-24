@@ -22,8 +22,7 @@ import { Tab } from "bootstrap";
 function ProductDetail() {
   const { productId } = useParams();
   const { products } = useProductsContext();
-  const { addToCart, removeCartItem, decreaseCartItem, increaseCartItem } =
-    useCartContext();
+  const { addToCart, cart } = useCartContext();
   const [thisProduct] = products.filter(
     (product) => Number(productId) === Number(product.id)
   );
@@ -92,27 +91,6 @@ function ProductDetail() {
               </Button>
               <Button variant="outline-dark" className="mx-5">
                 Find in Store
-              </Button>
-              <Button
-                variant="outline-dark"
-                className="mx-5"
-                onClick={() => removeCartItem(thisProduct)}
-              >
-                Remove From Cart
-              </Button>
-              <Button
-                variant="outline-dark"
-                className="mx-5"
-                onClick={() => decreaseCartItem(thisProduct)}
-              >
-                Decrease From Cart
-              </Button>
-              <Button
-                variant="outline-dark"
-                className="mx-5"
-                onClick={() => increaseCartItem(thisProduct)}
-              >
-                ıncrease From Cart
               </Button>
             </Col>
           </Row>

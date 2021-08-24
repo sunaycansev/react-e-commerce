@@ -10,7 +10,7 @@ function Slider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://cdn.luxe.digital/media/2019/12/16162226/best-men-online-shopping-mr-porter-luxe-digital.jpg"
+                src="https://www.louisvuitton.com/images/PUSH4_CAPUCINES_LSD_US_DI3.jpg?wid=2048"
                 alt="First slide"
               />
               <Carousel.Caption className="position-absolute top-0 start-0 text-start ps-5">
@@ -35,7 +35,7 @@ function Slider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://nohowstyle.com/media/home/banner_slide/banner_woman_2.jpg"
+                src="https://static.e-stradivarius.net/5/static2/homes/2021_w35/img/mkt-w/1920/2400_camisas_eurosur.jpg?t=20210824041511"
                 alt="Third slide"
               />
 
