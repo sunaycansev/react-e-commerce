@@ -45,13 +45,7 @@ const Cart = () => {
                     <h5 className="mb-4 fs-5">{`Cart (${cart.length} items) `}</h5>
                     {/*TODO*/}
                     {cart.length === 0 && (
-                      <div className="">
-                        {/*<h2 className="text-danger text-center">*/}
-                        {/*  <span>*/}
-                        {/*    <MdRemoveShoppingCart />*/}
-                        {/*  </span>{" "}*/}
-                        {/*  Cart is Empty*/}
-                        {/*</h2>*/}
+                      <div>
                         <Alert variant="danger">
                           <h4 className="text-center">
                             <span>

@@ -28,7 +28,7 @@ function Profile({ history }) {
                 className="card-img-top rounded-circle"
                 alt="avatar"
               />
-              <h3 className="text-center mt-3">Alice Sterling</h3>
+              <h3 className="text-center mt-3">{user?.name}</h3>
               <div className="card-body d-flex justify-content-between">
                 <button className="card-link btn btn-sm btn-info px-3 ">
                   Edit Profile

@@ -30,25 +30,6 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("cart");
     await logoutUser();
 
-    //current user id si al
-    //localestorage(usercarts) a bu id keye ile id bilgisini set et
-    /*
-    const allUsersCarts = [
-      {
-        id:1,
-        cart:cart arrayi
-      },
-      {
-        id:2,
-        cart
-      }
-    ]
-    
-     */
-
-    //remove localstorage
-
-    // callback for redirecting
     callback();
   };
 
