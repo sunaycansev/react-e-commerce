@@ -79,16 +79,29 @@ function ProductDetail() {
               </Row>
 
               <hr />
-              <Button
-                variant="dark"
-                className="px-4"
-                onClick={() => {
-                  addToCart(thisProduct);
-                }}
-              >
-                <FiShoppingCart className="me-2" />
-                Add To Cart
-              </Button>
+              {cart.some((product) => product.id === thisProduct?.id) ? (
+                <Button
+                  variant="dark"
+                  className="px-4"
+                  onClick={() => {
+                    addToCart(thisProduct);
+                  }}
+                >
+                  <FiShoppingCart className="me-2" />
+                  Add More
+                </Button>
+              ) : (
+                <Button
+                  variant="dark"
+                  className="px-4"
+                  onClick={() => {
+                    addToCart(thisProduct);
+                  }}
+                >
+                  <FiShoppingCart className="me-2" />
+                  Add To Cart
+                </Button>
+              )}
               <Button variant="outline-dark" className="mx-5">
                 Find in Store
               </Button>
