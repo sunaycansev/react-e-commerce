@@ -12,6 +12,7 @@ import { MdLocalShipping, MdRemoveShoppingCart } from "react-icons/md";
 import masterCard from "../../assets/mastercard.png";
 import visaCard from "../../assets/visa-logo-png-2020.png";
 import paypalCard from "../../assets/paypal-svgrepo-com.svg";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const {
@@ -67,23 +68,30 @@ const Cart = () => {
                           <div className="row mb-4">
                             <div className="col-md-5 col-lg-3 col-xl-3  ">
                               <div className="image   mb-3">
-                                <img
-                                  style={{ height: "100%", width: "100%" }}
-                                  src={product.image}
-                                  alt="product-img"
-                                />
+                                <Link to={`/product/${product.id}`}>
+                                  <img
+                                    style={{ height: "100%", width: "100%" }}
+                                    src={product.image}
+                                    alt="product-img"
+                                  />
+                                </Link>
                               </div>
                             </div>
                             <div className="col-md-7 col-lg-9 col-xl-9">
                               <div>
                                 <div className="d-flex justify-content-between">
                                   <div>
-                                    <h5
-                                      className="product-name lh-sm"
-                                      style={{ color: "#4f4f4f" }}
+                                    <Link
+                                      to={`/product/${product.id}`}
+                                      className="text-decoration-none"
                                     >
-                                      {product.title}
-                                    </h5>
+                                      <h5
+                                        className="product-name lh-sm "
+                                        style={{ color: "#4f4f4f" }}
+                                      >
+                                        {product.title}
+                                      </h5>
+                                    </Link>
                                     <p className="mb-3 text-muted text-uppercase small">
                                       {product.category}
                                     </p>
