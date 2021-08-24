@@ -37,11 +37,9 @@ const Login = ({ history, location }) => {
         });
         //console.log("loginresponse", loginResponse);
         if (!loginResponse) {
-          // burada alert gösterilecek
           window.location.reload();
           // history.push("/login");
         } else {
-          login(loginResponse[0]);
           history.push("/profile");
         }
       } catch (e) {

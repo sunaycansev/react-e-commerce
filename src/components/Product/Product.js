@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 import "./_Product.scss";
 import { FiShoppingCart } from "react-icons/fi";
 import { BsHeartFill } from "react-icons/bs";
-import { FaHeart, FaRandom, FaStar, FaStarHalf } from "react-icons/fa";
+import { FaRandom, FaStar } from "react-icons/fa";
 import { useCartContext } from "../../contexts/CartContext";
 
 function renderStars(number) {

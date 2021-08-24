@@ -14,9 +14,6 @@ const Header = () => {
   const retrievedCartData = localStorage.getItem("cart");
   const localeStorageCart = JSON.parse(retrievedCartData);
 
-  //console.log(localeStorageCart);
-  // console.log(cart);
-
   return (
     <Navbar expand="lg" className="navbar" variant="dark">
       <Container>
@@ -24,7 +21,7 @@ const Header = () => {
           <Logo />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="nav-links">
+        <Navbar.Collapse id="basic-navbar-nav" className="nav-links ">
           <Nav>
             <Link className="nav-link" to="/">
               Shop
