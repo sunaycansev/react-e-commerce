@@ -19,7 +19,7 @@ const CartProvider = ({ children }) => {
     const fetchCart = async () => {
       if (loggedIn && user) {
         const { data } = await axios.get(
-          `http://localhost:8000/users/${user.id}`
+          `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`
         );
         const userCart = data.cart;
 
@@ -71,7 +71,7 @@ const CartProvider = ({ children }) => {
       //axios post
 
       const prevCart = await axios
-        .get(`http://localhost:8000/users/${user.id}`)
+        .get(`https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`)
         .then((res) => res.data.cart);
       isInCart = prevCart.some((item) => item.id === data.id);
 
@@ -86,11 +86,14 @@ const CartProvider = ({ children }) => {
 
       //const newCart = [...prevCart, { ...data, count: 1 }];
 
-      axios.patch(`http://localhost:8000/users/${user.id}`, {
-        cart: isInCart
-          ? [incrementedProduct, ...otherProducts]
-          : [item, ...prevCart],
-      });
+      axios.put(
+        `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`,
+        {
+          cart: isInCart
+            ? [incrementedProduct, ...otherProducts]
+            : [item, ...prevCart],
+        }
+      );
     }
   };
   const removeCartItem = async (data) => {
@@ -104,13 +107,16 @@ const CartProvider = ({ children }) => {
       return;
     } else {
       const prevCart = await axios
-        .get(`http://localhost:8000/users/${user.id}`)
+        .get(`https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`)
         .then((res) => res.data.cart);
       const newCart = prevCart.filter((product) => product.id !== data.id);
 
-      axios.patch(`http://localhost:8000/users/${user.id}`, {
-        cart: newCart,
-      });
+      axios.put(
+        `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`,
+        {
+          cart: newCart,
+        }
+      );
     }
   };
   // const increaseCartItem = async (data) => {
@@ -142,7 +148,7 @@ const CartProvider = ({ children }) => {
       return;
     } else {
       const prevCart = await axios
-        .get(`http://localhost:8000/users/${user.id}`)
+        .get(`https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`)
         .then((res) => res.data.cart);
       const thisProduct = prevCart.find((product) => product.id === data.id);
       const otherProducts = prevCart.filter(
@@ -154,17 +160,25 @@ const CartProvider = ({ children }) => {
           count: thisProduct.count - 1,
         };
         const newCart = [decrementedProduct, ...otherProducts];
-        axios.patch(`http://localhost:8000/users/${user.id}`, {
-          cart: newCart,
-        });
+        axios.put(
+          `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`,
+          {
+            cart: newCart,
+          }
+        );
       } else {
         const prevCart = await axios
-          .get(`http://localhost:8000/users/${user.id}`)
+          .get(
+            `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`
+          )
           .then((res) => res.data.cart);
         const newCart = prevCart.filter((product) => product.id !== data.id);
-        axios.patch(`http://localhost:8000/users/${user.id}`, {
-          cart: newCart,
-        });
+        axios.put(
+          `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`,
+          {
+            cart: newCart,
+          }
+        );
       }
     }
   };
@@ -183,7 +197,7 @@ const CartProvider = ({ children }) => {
       return;
     } else {
       const prevCart = await axios
-        .get(`http://localhost:8000/users/${user.id}`)
+        .get(`https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`)
         .then((res) => res.data.cart);
       const thisProduct = prevCart.find((product) => product.id === data.id);
       const otherProducts = prevCart.filter(
@@ -194,9 +208,12 @@ const CartProvider = ({ children }) => {
         count: thisProduct.count + 1,
       };
       const newCart = [...otherProducts, incrementedProduct];
-      axios.patch(`http://localhost:8000/users/${user.id}`, {
-        cart: newCart,
-      });
+      axios.put(
+        `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`,
+        {
+          cart: newCart,
+        }
+      );
     }
   };
 
@@ -207,9 +224,12 @@ const CartProvider = ({ children }) => {
     if (!loggedIn) {
       return;
     } else {
-      axios.patch(`http://localhost:8000/users/${user.id}`, {
-        cart: [],
-      });
+      axios.put(
+        `https://612566f5da3cde0017da105d.mockapi.io/api/users/${user.id}`,
+        {
+          cart: [],
+        }
+      );
     }
   };
 
