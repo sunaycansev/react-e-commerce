@@ -24,10 +24,22 @@ const Cart = () => {
     increaseCartItem,
   } = useCartContext();
   console.log(cart);
+
+  // const temporaryAmountOfCart = Number(
+  //   cart
+  //     .reduce((acc, prod) => acc + Number(prod?.price) * prod.count, 0)
+  //     .toFixed(2)
+  // );
   const temporaryAmountOfCart = Number(
-    cart.reduce((acc, prod) => acc + prod.price * prod.count, 0).toFixed(2)
+    cart
+      .reduce(
+        (acc, prod) =>
+          acc + parseFloat((prod?.price).replace(/,/, ".") * prod.count),
+        0
+      )
+      .toFixed(2)
   );
-  const shipAmount = Number((temporaryAmountOfCart / 15).toFixed(2));
+  const shipAmount = parseFloat((temporaryAmountOfCart / 15).toFixed(2));
   const totalAmountOfCart = Number(
     (temporaryAmountOfCart + shipAmount).toFixed(2)
   );
