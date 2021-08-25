@@ -65,7 +65,7 @@ const Cart = () => {
                                 <Link to={`/product/${product.id}`}>
                                   <img
                                     style={{ height: "100%", width: "100%" }}
-                                    src={product.image}
+                                    src={product.images[0]}
                                     alt="product-img"
                                   />
                                 </Link>
@@ -90,7 +90,7 @@ const Cart = () => {
                                       {product.category}
                                     </p>
                                     <p className="mb-3 text-muted text-uppercase small">
-                                      Color: blue
+                                      Color: {product.color}
                                     </p>
                                     <p className="mb-3 text-muted text-uppercase small">
                                       Size: M

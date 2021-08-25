@@ -22,7 +22,7 @@ function renderStars(number) {
 }
 
 const Product = ({ product }) => {
-  const { image, title, price, id } = product;
+  const { images, title, price, id } = product;
   const { addToCart, removeCartItem } = useCartContext();
   const secondaryImage =
     "https://www.itopya.com/picture/razer-viper-mini-gaming-mouse-04.jpg";
@@ -47,13 +47,13 @@ const Product = ({ product }) => {
             <img
               style={{ height: 200, objectFit: "contain" }}
               className="primary-image img-fluid"
-              src={image}
+              src={images[0]}
               alt={title}
             />
             <img
               style={{ height: 200, objectFit: "contain" }}
               className="secondary-image img-fluid"
-              src={secondaryImage}
+              src={images[1]}
               alt={title}
             />
             {renderStars(5)}
