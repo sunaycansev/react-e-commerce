@@ -10,7 +10,7 @@ function Slider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://www.louisvuitton.com/images/PUSH4_CAPUCINES_LSD_US_DI3.jpg?wid=2048"
+                src="https://resource.logitechg.com/w_1800,c_limit,f_auto,q_auto,f_auto,dpr_auto/d_transparent.gif/content/dam/gaming/en/products/shroud/shroud-hpb.png?v=1"
                 alt="First slide"
               />
               <Carousel.Caption className="position-absolute top-0 start-0 text-start ps-5">
@@ -21,7 +21,7 @@ function Slider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://nohowstyle.com/media/home/banner_slide/BANNER_HOME_5_1.jpg"
+                src="https://assets2.razerzone.com/images/pnx.assets/a91652f5ab76119f0d8ff9c14ee5633a/kv-desktop.jpg"
                 alt="Second slide"
               />
 
@@ -35,7 +35,7 @@ function Slider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://static.e-stradivarius.net/5/static2/homes/2021_w35/img/mkt-w/1920/2400_camisas_eurosur.jpg?t=20210824041511"
+                src="https://assets2.razerzone.com/images/pnx.assets/e36ecbd1b3cf8451f4581518ecfb4ffe/hyperspeed.jpg"
                 alt="Third slide"
               />
 
