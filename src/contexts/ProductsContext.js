@@ -6,9 +6,11 @@ export const ProductsContext = createContext();
 const ProductsProvider = (props) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setProducts(res.data);
-    });
+    axios
+      .get("https://612566f5da3cde0017da105d.mockapi.io/api/products")
+      .then((res) => {
+        setProducts(res.data);
+      });
   }, []);
   const value = { products };
   return (
