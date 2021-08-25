@@ -1,35 +1,12 @@
-# React-Ecommerce-website
+# Sunay-Ecommerce
 
-### Version 1 :
+---
 
-- The data is stored on mockapi
+CRUD e-commerce project which is written with ReactJS and Scss. The application behaves differently for logged-in and not logged-in users. For not logged-in users, cart information is kept in local storage. For a logged-in user, cart information is kept in user cart data, which is an API. Product information is coming from an API. The application has 6 pages which are home, product details, about us, contact, profile, login, sign-up, and cart. On the cart page, users can see their products and edit counts or remove it from the cart. All cart operations work synchronously with the API.
 
-  version 1 is hosted [HERE!](https://www.google.com)
-
-An CRUD E commerce platform made using React JS,Context API, mockapi
+Live Demo [HERE!](https://www.google.com)
 
 The application is composed of the following Features:
-
-### Front-End
-
-- A home page which has navbar, slider, product list and footer.
-- A page with Sign-up component.
-- A page with Sign-in component.
-- A page with about us component.
-- A page with contact component with minimalistic design.
-- All form related fields are made using reusable components with Formik.
-- Has a cart feature which displays the items selected in a summary.
-- The cart component also allows to edit the contents of the items selected.
-- On cart page we can increase, decrease and remove item.
-- Check out features are yet to be integrated into the appplication.
-- Responsive design
-
-### mockapi
-
-- Application hold all shopping related and cart related data of each user.
-- Cart related information is kept and combined separately for logged in and not logged in users.
-- It is also used to store user data
-- Each user has email, password,and cart datas.
 
 ### Tools
 
@@ -44,7 +21,7 @@ The application is composed of the following Features:
 
 **SCREENSHOTS:**
 
-Landing Page:
+Home Page:
 
 ## ![]()
 
