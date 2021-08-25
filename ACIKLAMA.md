@@ -1,7 +1,5 @@
 # React-Ecommerce-website
 
-### Work Under Progress
-
 ### Version 1 :
 
 - The data is stored on mockapi
@@ -14,12 +12,11 @@ The application is composed of the following Features:
 
 ### Front-End
 
--
-- A home page which has navbar, slider, product cards and footer.
+- A home page which has navbar, slider, product list and footer.
 - A page with Sign-up component.
 - A page with Sign-in component.
 - A page with about us component.
-- A page with contact with minimalistic design component.
+- A page with contact component with minimalistic design.
 - All form related fields are made using reusable components with Formik.
 - Has a cart feature which displays the items selected in a summary.
 - The cart component also allows to edit the contents of the items selected.
@@ -32,21 +29,18 @@ The application is composed of the following Features:
 - Application hold all shopping related and cart related data of each user.
 - Cart related information is kept and combined separately for logged in and not logged in users.
 - It is also used to store user data
-- Each user has email, password, username, avatar, and cart datas.
+- Each user has email, password,and cart datas.
 
 ### Tools
 
-- Context Api
+- React Context Api
+- React Router DOM
+- React Icons
+- Axios
 - Formik
 - React-Bootstrap
-- react-router
 - Scss
-- **Progress:**
-  Version 1 completed and hosted
-
-Version 2 Progress: 50%
-<br/>
-![]()
+- Toastify
 
 **SCREENSHOTS:**
 

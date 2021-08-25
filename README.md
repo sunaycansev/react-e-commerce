@@ -1,72 +1,145 @@
-# Getting Started with Create React App
+# React-Ecommerce-website
 
-mockapi
+### Version 1 :
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- The data is stored on mockapi
 
-## Available Scripts
+  version 1 is hosted [HERE!](https://www.google.com)
 
-In the project directory, you can run:
+An CRUD E commerce platform made using React JS,Context API, mockapi
 
-### `npm start`
+The application is composed of the following Features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Front-End
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- A home page which has navbar, slider, product list and footer.
+- A page with Sign-up component.
+- A page with Sign-in component.
+- A page with about us component.
+- A page with contact component with minimalistic design.
+- All form related fields are made using reusable components with Formik.
+- Has a cart feature which displays the items selected in a summary.
+- The cart component also allows to edit the contents of the items selected.
+- On cart page we can increase, decrease and remove item.
+- Check out features are yet to be integrated into the appplication.
+- Responsive design
 
-### `npm test`
+### mockapi
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Application hold all shopping related and cart related data of each user.
+- Cart related information is kept and combined separately for logged in and not logged in users.
+- It is also used to store user data
+- Each user has email, password,and cart datas.
 
-### `npm run build`
+### Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React Context Api
+- React Router DOM
+- React Icons
+- Axios
+- Formik
+- React-Bootstrap
+- Scss
+- Toastify
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**SCREENSHOTS:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Landing Page:
 
-### `npm run eject`
+## ![]()
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Product Preview:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ![]()
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Sign-in Sign-Up Page:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![]()
 
-## Learn More
+Cart Section:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![]()
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Cart Section:
 
-### Code Splitting
+![]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Sign-up Page:
 
-### Analyzing the Bundle Size
+![]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Contact Page:
 
-### Making a Progressive Web App
+![]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+About us Page:
 
-### Advanced Configuration
+![]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Profile Page
 
-### Deployment
+![]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Developed With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [WebStorm](https://www.jetbrains.com/webstorm/) - WebStorm is an integrated development environment for JavaScript and related technologies. Like other JetBrains IDEs, it makes your development experience more enjoyable, automating routine work and helping you handle complex tasks with ease.
+- [React](https://reactjs.org/) - A javascript library for building user interfaces
+- [Create react app](https://create-react-app.dev/) - A quick method to start developing a react application.
+- [Babel](https://babeljs.io/) - A transpiler for javascript
+- [Webpack](https://webpack.js.org/) - A module bundler
+- [SCSS](http://sass-lang.com/) - A css metalanguage
+- [Bootstrap](https://getbootstrap.com/) - Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+
+---
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+The following software is required to be installed on your system:
+
+- Node 10.x
+- Npm 5.x
+
+Type the following commands in the terminal to verify your node and npm versions
+
+```bash
+node -v
+npm -v
+```
+
+### Install
+
+Follow the following steps to get development environment running.
+
+- Clone _'react-e-commerce'_ repository from GitHub
+
+  ```bash
+  git clone https://github.com/sunaycansev/react-e-commerce
+  ```
+
+  _OR USING SSH_
+
+  ```bash
+  git clone git@github.com:sunaycansev/react-e-commerce
+  ```
+
+- Install node modules
+
+  ```bash
+  npm install
+  ```
+
+### Starting front-end servers
+
+- Build application
+
+  ```bash
+  npm start
+  ```
+
+---
