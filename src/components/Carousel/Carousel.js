@@ -10,7 +10,7 @@ function Slider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://resource.logitechg.com/w_1800,c_limit,f_auto,q_auto,f_auto,dpr_auto/d_transparent.gif/content/dam/gaming/en/products/shroud/shroud-hpb.png?v=1"
+                src="https://assets2.razerzone.com/pages/barracuda-x-4c578898e8144ee8da21dde32b7a9f5f/barracuda-x_hero_desktop.jpg"
                 alt="First slide"
               />
               <Carousel.Caption className="position-absolute top-0 start-0 text-start ps-5">
