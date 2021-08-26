@@ -14,8 +14,8 @@ function Slider() {
                 alt="First slide"
               />
               <Carousel.Caption className="position-absolute top-0 start-0 text-start ps-5">
-                <h3 className="fs-1 font-monospace"></h3>
-                <p className="fs-2"></p>
+                <h3 className="fs-1 font-monospace">Gamer</h3>
+                <p className="fs-2">Learn how to play!</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -26,10 +26,8 @@ function Slider() {
               />
 
               <Carousel.Caption className="position-absolute top-0 end-0 text-end pe-5">
-                {/*<h3 className="fs-1 font-monospace">Second slide label</h3>*/}
-                {/*<p className="fs-2">*/}
-                {/*  Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
-                {/*</p>*/}
+                <h3 className="fs-1 font-monospace">Best utils for gamers!</h3>
+                <p className="fs-2">Razer</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
