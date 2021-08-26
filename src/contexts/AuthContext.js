@@ -1,7 +1,6 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { getAllUsers, logoutUser } from "../api";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
-import { setLocale } from "yup";
 
 export const AuthContext = createContext();
 

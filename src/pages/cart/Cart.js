@@ -17,8 +17,7 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const {
     cart,
-    clearCart,
-    addToCart,
+
     removeCartItem,
     decreaseCartItem,
     increaseCartItem,
