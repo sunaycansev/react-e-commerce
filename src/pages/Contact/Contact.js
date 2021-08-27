@@ -16,7 +16,7 @@ const Contact = () => {
           <Col className="col">
             <img
               className="img-fluid"
-              src="https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp"
+              src="https://assets2.razerzone.com/images/pnx.assets/ef9f0b65c4a27776c4f9b93c4a8820b3/razer-strider-hero-desktop.jpg"
               alt="banner"
             />
           </Col>
