@@ -2,19 +2,12 @@ import { useState, createContext, useContext, useEffect } from "react";
 
 import { useAuthContext } from "./AuthContext";
 import axios from "axios";
-
+const defaultCart = JSON.parse(localStorage.getItem("cart")) || [];
 export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const { loggedIn, user } = useAuthContext();
-  const defaultCart = JSON.parse(localStorage.getItem("cart")) || [];
-  //TODO
-  /*
-  --database kontrolü yap ve fetch ile userın cartını alarak default cart yap
 
-
-
-   */
   useEffect(() => {
     const fetchCart = async () => {
       if (loggedIn && user) {

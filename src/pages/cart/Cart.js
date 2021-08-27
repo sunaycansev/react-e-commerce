@@ -29,19 +29,13 @@ const Cart = () => {
   //     .reduce((acc, prod) => acc + Number(prod?.price) * prod.count, 0)
   //     .toFixed(2)
   // );
-  const temporaryAmountOfCart = Number(
-    cart
-      .reduce(
-        (acc, prod) =>
-          acc + parseFloat((prod?.price).replace(/,/, ".") * prod.count),
-        0
-      )
-      .toFixed(2)
+
+  const temporaryAmountOfCart = Math.floor(
+    cart.reduce((acc, prod) => acc + prod?.price * prod.count, 0).toFixed(2)
   );
-  const shipAmount = parseFloat((temporaryAmountOfCart / 15).toFixed(2));
-  const totalAmountOfCart = Number(
-    (temporaryAmountOfCart + shipAmount).toFixed(2)
-  );
+
+  const shipAmount = Math.floor(temporaryAmountOfCart / 15).toFixed(2);
+  const totalAmountOfCart = Number(temporaryAmountOfCart) + Number(shipAmount);
 
   return (
     <>
