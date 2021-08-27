@@ -13,7 +13,7 @@ const About = () => {
           <Col className="col">
             <img
               className="img-fluid"
-              src="https://media.frankandoak.com/media/assets/handbook/2021/JUNE06/GLP%20Tiles%20WW/DESKTOP/Tile_MW.jpg?imwidth=2000"
+              src="https://assets2.razerzone.com/images/pnx.assets/a5caccba8c4ab41f8f440cf234656fba/razer-raptor-27-hero-desktop.jpg"
               alt="banner"
             />
           </Col>
@@ -55,7 +55,7 @@ const About = () => {
               <div className="img-hover  overflow-hidden ">
                 <img
                   className="w-100  z-index-2 top-0 start-0"
-                  src="https://preview.colorlib.com/theme/cozastore/images/xabout-01.jpg.pagespeed.ic.uzAXsYw1Qn.webp"
+                  src="https://images.unsplash.com/photo-1544652478-6653e09f18a2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
                   alt="men"
                 />
               </div>
@@ -68,7 +68,7 @@ const About = () => {
               <div className="img-2-hover">
                 <img
                   className=" w-100"
-                  src="https://preview.colorlib.com/theme/cozastore/images/xabout-02.jpg.pagespeed.ic.-BA0jt5hGo.webp"
+                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
                   alt="men"
                 />
               </div>

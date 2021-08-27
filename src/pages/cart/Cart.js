@@ -22,7 +22,6 @@ const Cart = () => {
     decreaseCartItem,
     increaseCartItem,
   } = useCartContext();
-  console.log(cart);
 
   // const temporaryAmountOfCart = Number(
   //   cart
