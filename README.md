@@ -4,7 +4,7 @@
 
 CRUD e-commerce project which is written with ReactJS and Scss. The application behaves differently for logged-in and not logged-in users. For not logged-in users, cart information is kept in local storage. For a logged-in user, cart information is kept in user cart data, which is an API. Product information is coming from an API. The application has 6 pages which are home, product details, about us, contact, profile, login, sign-up, and cart. On the cart page, users can see their products and edit counts or remove it from the cart. All cart operations work synchronously with the API.
 
-Live Demo [HERE!](https://www.google.com)
+Live Demo [HERE!](https://sunay-ecommerce.netlify.app)
 
 The application is composed of the following Features:
 
@@ -23,41 +23,45 @@ The application is composed of the following Features:
 
 Home Page:
 
-## ![]()
+## ![](src/assets/project-ss/home.png)
+
+---
+
+Product Cards:
+
+## ![](src/assets/project-ss/product-cards.png)
+
+---
 
 Product Preview:
 
-## ![]()
+## ![](src/assets/project-ss/detail.png)
 
-Sign-in Sign-Up Page:
+---
 
-![]()
+Sign-Up Page:
 
-Cart Section:
-
-![]()
+## ![](src/assets/project-ss/sign-up.png)
 
 Cart Section:
 
-![]()
+## ![](src/assets/project-ss/cart.png)
 
-Sign-up Page:
+Login Section:
 
-![]()
+## ![](src/assets/project-ss/login.png)
 
 Contact Page:
 
-![]()
+## ![](src/assets/project-ss/contacts.png)
 
 About us Page:
 
-![]()
+## ![](src/assets/project-ss/about-us.png)
 
 Profile Page
 
-![]()
-
----
+## ![](src/assets/project-ss/profile.png)
 
 ## Developed With
 
