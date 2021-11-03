@@ -122,5 +122,7 @@ Follow the following steps to get development environment running.
   ```bash
   npm start
   ```
+  ### Thanks To:
+  -[@ercumentlacin](https://github.com/ercumentlacin) : For providing support at all times throughout the project.
 
 ---
